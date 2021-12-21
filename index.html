@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Flower Market</title>
+</head>
+
+<body>
+
+    <!-- header section starts -->
+
+    <header class="header-container">
+        <div class="logo-container">
+            <h1>Flower Market</h1>
+        </div>
+        <div class="navbar-container">
+            <ul class="navbar-items">
+                <li><a href="#" class="navbar-link">Home</a></li>
+                <li><a href="#" class="navbar-link">Productos</a></li>
+                <li><a href="#" class="navbar-link">Acerca De</a></li>
+                <li><a href="#" class="navbar-link">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="login-container">
+            <button class="login-button">Login</button>
+            <button class="signup-button">Sign-up</button>
+            <div class="cart-button" id="cart-button">
+                <img src="/assets/cart.svg" alt="">
+                <span class="notification" id="bubble"></span>
+            </div>
+
+        </div>
+    </header>
+
+    <aside class="cart-modal display-none" id="cart-modal">
+        <div class="close-button" id="close-button">X</div>
+
+        <div class="cart-list-headers display-none" id="cart-list-headers">
+            <h2>Producto</h2>
+            <h2>Cantidad</h2>
+            <h2>Precio</h2>
+            <h2>Borrar</h2>
+        </div>
+        <div class="noproducts-notification display-none" id="noproducts-notification">
+            <p>No hay productos agregados al carrito</p>
+        </div>
+        <div class="cart-modal-products" id="cart-modal-products">
+            <!-- here products added to cart are rendered-->
+
+
+
+        </div>
+
+    </aside>
+
+    <!-- header section ends -->
+
+    <!-- Welcome image starts-->
+
+    <section class=" welcome">
+        <div class="welcome-info">
+            <h1>Suscripción de <strong>Ramos Florales</strong></h1>
+            <h2>¡Recibilos en la comodidad de tu casa mensualmente!</h2>
+            <a href="#">Ver Ramos</a>
+        </div>
+    </section>
+
+    <!-- Welcome image ends-->
+
+    <!-- Products starts-->
+
+    <section class="filter">
+
+        <h2 class="product-title">Conoce nuestros <span>exclusivos ramos</span></h2>
+
+        <div class="product-filter">
+            <div class="filter-item">
+                <img src="/assets/menu-icon.png" alt="Todos" id="filter-button">
+                <p>Todos</p>
+            </div>
+
+            <div class="filter-item">
+                <img src="/assets/menu-icon.png" alt="Flores" id="filter-button">
+                <p>Flores</p>
+            </div>
+
+            <div class="filter-item">
+                <img src="/assets/menu-icon.png" alt="Secos" id="filter-button">
+                <p>Secos</p>
+            </div>
+
+            <div class="filter-item">
+                <img src="/assets/menu-icon.png" alt="Eventos" id="filter-button">
+                <p>Eventos</p>
+            </div>
+
+            <div class="filter-item">
+                <img src="/assets/menu-icon.png" alt="Estacionales" id="filter-button">
+                <p>Estacionales</p>
+            </div>
+
+
+
+        </div>
+
+    </section>
+
+    <section class="main-products">
+
+        <div class="products" id="products-area">
+
+            <!-- here products render from object -->
+
+        </div>
+
+    </section>
+
+    <!-- Products ends-->
+
+    <!-- How it Works -->
+    <section class="how-it-works">
+        <div class="how-it-works-info">
+            <h2>¿Cómo funciona nuestro servicio?</h2>
+            <div class="how-it-works-items">
+                <div class="how-it-works-item">
+                    <img src="assets/calendar.svg" alt="">
+                    <h3>Elegí la frecuencia</h3>
+                    <p>¿Un ramo a la semana? ¿Un ramo cada 15 días? ¿Un ramo al mes? ¡Vos decidís!</p>
+                </div>
+                <div class="how-it-works-item">
+                    <img src="assets/calendar.svg" alt="">
+                    <h3>Elegí el Ramo</h3>
+                    <p>En cada entrega, podrás escoger qué ramo preferis entre varias opciones.</p>
+                </div>
+                <div class="how-it-works-item">
+                    <img src="assets/calendar.svg" alt="">
+                    <h3>Envío gratis</h3>
+                    <p>Podés cambiar la dirección de entrega cuando quieras sin costo adicional.</p>
+                </div>
+                <div class="how-it-works-item">
+                    <img src="assets/calendar.svg" alt="">
+                    <h3>Personalizá</h3>
+                    <p>Podés modificar, pausar o cancelar tu suscripción cuando quieras.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- How it Works -->
+
+    <footer class="footer">
+
+        <div class="footer-form">
+            <form action="submit">
+                <input type="text" placeholder="Nombre">
+                <input type="email" name="" id="" placeholder="Email">
+                <textarea name="textarea" cols="100" rows="5">consulta</textarea>
+            </form>
+        </div>
+        <div class="footer-map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26305.024506274!2d-58.49743359999999!3d-34.4996375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb1baf0929a3f%3A0x5fd6a1cb686d647d!2sLa%20Parolaccia%20Trattoria%20(San%20Isidro)!5e0!3m2!1ses-419!2sar!4v1639792634640!5m2!1ses-419!2sar"
+                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+    </footer>
+
+    <script src="main.js" type="module"></script>
+    <script src="products.js" type="module"></script>
+</body>
+
+</html>
