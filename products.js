@@ -43,6 +43,15 @@ let productList = [
 		img: '/assets/ramo.png',
 		key: 5,
 	},
+
+	{
+		name: 'ramo premium',
+		category: 'prueba',
+		price: '2000',
+		quantity: 1,
+		img: '/assets/ramo.png',
+		key: 6,
+	},
 ];
 
 export default productList;
