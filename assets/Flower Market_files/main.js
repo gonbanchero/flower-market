@@ -39,8 +39,6 @@ const totalFinalNum = document.getElementById('total-final-num');
 const totalFinal = document.getElementById('total-final');
 const iniciarCompra = document.getElementById('iniciar-compra');
 const seguirViendo = document.getElementById('seguir-viendo');
-const postalCode = document.querySelector('#search');
-const calculateShipping = document.querySelector('#calcular');
 
 const saveInLocalStorage = (data) => {
 	localStorage.setItem('data', JSON.stringify(data));
@@ -253,21 +251,6 @@ function totalCartMin() {
 	totalFinalNum.innerHTML = `$${totalCartReduceMin}`;
 }
 
-calculateShipping.addEventListener('click', (e) => {
-	e.preventDefault();
-	let postalCodeValue = postalCode.value;
-
-	let totalCartReduce2 = cartList.reduce(
-		(acc, cur) =>
-			acc + parseInt(cur.price.slice(1, cur.price.length) * cur.quantity),
-		0
-	);
-
-	totalCartReduce2 > 3000 && postalCodeValue !== ''
-		? console.log('tu envio es:')
-		: console.log('puto');
-});
-
 // Eliminamos artículos del carrito
 
 let deleteArray = [];
@@ -333,5 +316,3 @@ function init() {
 
 // Corremos la función iniciadora
 init();
-
-export default cartList;

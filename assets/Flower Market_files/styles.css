@@ -280,7 +280,7 @@
 	padding: 10px 20px;
 	width: 100%;
 	background-color: var(--lightgray);
-	color: black;
+	color: #ffffff;
 }
 
 .form-calcular button {
@@ -363,7 +363,7 @@
 	font-size: 0.8rem;
 	cursor: pointer;
 }
-.iniciar-compra a {
+.iniciar-compra button {
 	padding: 10px 25px;
 	color: #fff;
 	background-color: var(--primario);

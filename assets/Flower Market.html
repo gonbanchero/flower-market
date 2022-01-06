@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://127.0.0.1:5500/checkout.html -->
+<html lang="en" class="js-focus-visible" data-js-focus-visible=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+
+    <title>Flower Market</title>
+<style type="text/css">
+@font-face {
+  font-weight: 400;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Book-cd7d2bcec649b1243839a15d5eb8f0a3.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 500;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Medium-d74eac43c78bd5852478998ce63dceb3.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Bold-83b8ceaf77f49c7cffa44107561909e4.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 900;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Black-bf067ecb8aa777ceb6df7d72226febca.woff2') format('woff2');
+}</style><link rel="stylesheet" href="./Flower Market_files/styles.css"><link rel="stylesheet" href="./Flower Market_files/checkout.css"></head>
+
+<body id="body-container">
+
+    <!-- header section starts -->
+
+    <header class="header-container">
+        <div class="logo-container">
+            <h1>Flower Market</h1>
+        </div>
+    </header>
+
+    <!-- header section ends -->
+
+    <!-- Checkout section starts-->
+
+    <div class="main-background">
+        <div class="checkout-header">
+            <div class="checkout-header-left">
+                <img src="./Flower Market_files/checkout-image.png" alt="" srcset="">
+            </div>
+            <div class="checkout-header-center">
+                <h3>Recibí ramos en tu hogar, con sólo un click</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere architecto perferendis quos! Minima
+                    pariatur illum quos recusandae ipsam dignissimos deserunt distinctio, amet quo hic ex, est eum odio
+                    natus vero.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="checkout-background">
+        <main class="checkout">
+            <div class="checkout-form-main">
+
+                <div class="checkout-form-container">
+
+                    <div class="form-left">
+                        <form action="http://127.0.0.1:5500/checkout" class="checkout-form">
+                            <label for="first-name-field" class="required">Nombre</label>
+                            <input type="text" id="first-name-field" class="required" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+                            <label for="email-field" class="required">Email</label>
+                            <input type="text" id="email-field">
+                            <label for="adress-field" class="required">Dirección</label>
+                            <input type="text" id="adress-field">
+                        </form>
+                    </div>
+
+                    <div class="form-right">
+                        <form action="http://127.0.0.1:5500/checkout" class="checkout-form">
+                            <label for="last-name-field" class="required">Apellido</label>
+                            <input type="text" id="last-name-field">
+                            <label for="phone-field" class="required">Teléfono</label>
+                            <input type="text" id="phone-field">
+                            <label for="city-field" class="required">Ciudad</label>
+                            <input type="text" id="city-field">
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="additional-info">
+                    <h3>Información adicional</h3>
+                    <label for="city-field" class="required">Ingresa tus comentarios (opcional)</label>
+                    <textarea name="textarea" rows="5" cols="100%"></textarea>
+                </div>
+
+                <div class="checkout-order">
+                    <table class="chekout-products">
+                        <thead>
+                            <tr>
+                                <th class="table-70">Producto</th>
+                                <th class="table-30">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="cart-item">
+                                <td class="table-70">Flores</td>
+                                <td class="table-30">$100</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+            <div class="checkout-form-container-right">
+
+            </div>
+            <div class="checkout-reviews">asd</div>
+        </main>
+    </div>
+
+
+
+
+
+
+    <!-- Checkout section ends-->
+
+    <script src="./Flower Market_files/main.js" type="module"></script>
+    <script src="./Flower Market_files/products.js" type="module"></script>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body><loom-container id="lo-engage-ext-container"><loom-shadow classname="resolved"></loom-shadow></loom-container><loom-container id="lo-companion-container"><loom-shadow classname="resolved"></loom-shadow></loom-container></html>
