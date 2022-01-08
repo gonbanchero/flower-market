@@ -41,7 +41,10 @@ const iniciarCompra = document.getElementById('iniciar-compra');
 const seguirViendo = document.getElementById('seguir-viendo');
 const postalCode = document.querySelector('#search');
 const calculateShipping = document.querySelector('#calcular');
+const shippingText = document.querySelector('#shipping-text');
+const iniciarCompraBtn = document.querySelector('#iniciar-compra');
 
+// Función para el Local Storage
 const saveInLocalStorage = (data) => {
 	localStorage.setItem('data', JSON.stringify(data));
 };
@@ -75,7 +78,7 @@ function showProducts(array) {
 
 // ========== FUNCIONES DEL FILTRO ==========
 
-// crea un array de categorias dinámicamente para no hacerlo a mano
+// crea un array de categorias dinámicamente para no agregar a mano nuevas categorias
 
 const categorias = () => {
 	const categories = [];
@@ -159,9 +162,9 @@ function addToCart(e) {
 	cartList.push(cartProduct);
 
 	cartNotificationBubble(parseInt(quantityBubble()));
-	feedCartModal(cartList);
-	totalCartSum();
+	totalCartResult();
 	saveInLocalStorage(cartList);
+	feedCartModal(cartList);
 }
 
 // Imprime la burbuja de notificación
@@ -170,6 +173,45 @@ function cartNotificationBubble(quantity) {
 	notificationBubble.innerHTML = quantity;
 	localStorage.setItem('bubble', JSON.stringify(quantity));
 }
+
+// Si el carrito está vacio muestra un mensaje, sino muestra los productos agregados
+
+cartButton.addEventListener('click', () => {
+	modal.classList.remove('display-none');
+	body.classList.add('stop-scrolling');
+
+	if (
+		JSON.parse(localStorage.getItem('totalCart')) !== 0 ||
+		cartList.length >= 1
+	) {
+		feedCartModal(JSON.parse(localStorage.getItem('data')));
+		noProductsNotification.classList.add('display-none');
+		offCanvasBody.classList.remove('display-none');
+		totalCart.classList.remove('display-none');
+
+		totalFinalNum.innerText = `$${JSON.parse(
+			localStorage.getItem('totalCart')
+		)}`;
+
+		totalCart.innerHTML = `<p class="total-sum"><strong>Subtotal (sin envío): <span>$${JSON.parse(
+			localStorage.getItem('totalCart')
+		)}</span></p>`;
+
+		offCanvasBody.classList.remove('display-none');
+		totalFinal.classList.remove('display-none');
+		takeAway.classList.remove('display-none');
+		shippingRate.classList.remove('display-none');
+		iniciarCompra.classList.remove('display-none');
+	} else {
+		noProductsNotification.classList.remove('display-none');
+		totalCart.classList.add('display-none');
+		offCanvasBody.classList.add('display-none');
+		totalFinal.classList.add('display-none');
+		takeAway.classList.add('display-none');
+		shippingRate.classList.add('display-none');
+		iniciarCompra.classList.add('display-none');
+	}
+});
 
 //Agrega los productos a la ventana del carrito
 
@@ -200,37 +242,8 @@ function feedCartModal(product) {
 	});
 }
 
-// Si el carrito está vacio muestra un mensaje, sino muestra los productos agregados
-
-cartButton.addEventListener('click', () => {
-	modal.classList.remove('display-none');
-	body.classList.add('stop-scrolling');
-
-	if (JSON.parse(localStorage.getItem('data')) || cartList.length >= 1) {
-		feedCartModal(JSON.parse(localStorage.getItem('data')));
-		noProductsNotification.classList.add('display-none');
-		offCanvasBody.classList.remove('display-none');
-		totalCart.classList.remove('display-none');
-		offCanvasBody.classList.remove('display-none');
-		totalFinal.classList.remove('display-none');
-		takeAway.classList.remove('display-none');
-		shippingRate.classList.remove('display-none');
-		iniciarCompra.classList.remove('display-none');
-	} else {
-		noProductsNotification.classList.remove('display-none');
-		totalCart.classList.add('display-none');
-		offCanvasBody.classList.add('display-none');
-		totalFinal.classList.add('display-none');
-		takeAway.classList.add('display-none');
-		shippingRate.classList.add('display-none');
-		iniciarCompra.classList.add('display-none');
-	}
-});
-
 // Muestra el total a pagar del carrito
-
-// Sumando
-function totalCartSum() {
+function totalCartResult() {
 	let totalCartReduce = cartList.reduce(
 		(acc, cur) =>
 			acc + parseInt(cur.price.slice(1, cur.price.length) * cur.quantity),
@@ -239,33 +252,42 @@ function totalCartSum() {
 
 	totalCart.innerHTML = `<p class="total-sum"><strong>Subtotal (sin envío): <span>$${totalCartReduce}</span></p>`;
 	totalFinalNum.innerHTML = `$${totalCartReduce}`;
-}
-
-// Restando
-function totalCartMin() {
-	let totalCartReduceMin = cartList.reduce(
-		(acc, cur) =>
-			acc + parseInt(cur.price.slice(1, cur.price.length) * cur.quantity),
-		0
-	);
-
-	totalCart.innerHTML = `<p class="total-sum"><strong>Subtotal (sin envío): <span>$${totalCartReduceMin}</span></p>`;
-	totalFinalNum.innerHTML = `$${totalCartReduceMin}`;
+	localStorage.setItem('totalCart', `${totalCartReduce}`);
+	localStorage.setItem('subTotalCart', `${totalCartReduce}`);
 }
 
 calculateShipping.addEventListener('click', (e) => {
 	e.preventDefault();
 	let postalCodeValue = postalCode.value;
+	console.log(postalCodeValue);
 
 	let totalCartReduce2 = cartList.reduce(
 		(acc, cur) =>
 			acc + parseInt(cur.price.slice(1, cur.price.length) * cur.quantity),
 		0
 	);
+	console.log(totalCartReduce2);
 
-	totalCartReduce2 > 3000 && postalCodeValue !== ''
-		? console.log('tu envio es:')
-		: console.log('puto');
+	if (postalCodeValue === '') {
+		alert('Ingresá tu código postal para calcular el costo de envío');
+	} else {
+		totalCartReduce2 > 3000
+			? (shippingText.innerHTML = 'tu envío es gratuito')
+			: (shippingText.innerHTML = 'Envio: $240');
+	}
+
+	let totalPlusShipping =
+		totalCartReduce2 > 3000 ? totalCartReduce2 : 240 + totalCartReduce2;
+	totalFinalNum.innerHTML = `$${totalPlusShipping}`;
+	localStorage.setItem('totalCart', `${totalPlusShipping}`);
+
+	localStorage.setItem('envio', shippingText.innerText);
+});
+
+iniciarCompraBtn.addEventListener('click', (e) => {
+	takeAwayCheckbox.checked || shippingText.innerText !== ''
+		? (location.href = 'checkout.html')
+		: alert('algo paso che');
 });
 
 // Eliminamos artículos del carrito
@@ -279,7 +301,7 @@ const quantityBubble = () =>
 function deleteProductsCart(key) {
 	cartList = cartList.filter((product) => product.key !== key);
 	feedCartModal(cartList);
-	totalCartMin();
+	totalCartResult();
 
 	if (quantityBubble() === 0) {
 		notificationBubble.classList.add('display-none');
@@ -307,6 +329,7 @@ seguirViendo.addEventListener('click', () => {
 });
 
 takeAwayCheckbox.addEventListener('change', (e) => {
+	console.log(e);
 	if (e.target.checked) {
 		tarjetaTakeAway.classList.remove('tarjeta-takeaway');
 		tarjetaTakeAway.classList.add('tarjeta-takeaway-check');
@@ -321,12 +344,15 @@ takeAwayCheckbox.addEventListener('change', (e) => {
 // Función iniciadora
 function init() {
 	JSON.parse(localStorage.getItem('data'));
+	JSON.parse(localStorage.getItem('totalCart'));
+
 	showProducts(productList);
 	botoneraFiltro();
 	filterProducts();
 
 	let bubbleNumber = JSON.parse(localStorage.getItem('bubble'));
-	bubbleNumber === null
+
+	JSON.parse(localStorage.getItem('totalCart')) === 0 || bubbleNumber === null
 		? notificationBubble.classList.add('display-none')
 		: cartNotificationBubble(JSON.parse(localStorage.getItem('bubble')));
 }

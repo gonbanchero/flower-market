@@ -39,7 +39,8 @@
 
 .checkout-background {
 	background-color: #f9f8f6;
-	height: 110vh;
+	height: auto;
+	padding-bottom: 80px;
 }
 .checkout {
 	width: 80%;

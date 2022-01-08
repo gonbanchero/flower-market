@@ -3,6 +3,7 @@
 const tBodyItems = document.querySelector('#tbody-items');
 const tFootSubTotal = document.querySelector('#tfoot-subtotal');
 const orderTotal = document.querySelector('#order-total');
+const tfootShipping = document.querySelector('#tfoot-shipping');
 
 function feedCheckoutItems(product) {
 	console.log(product);
@@ -23,19 +24,25 @@ function feedCheckoutItems(product) {
 		0
 	);
 
+	// Imprimimos el subtotal
 	tFootSubTotal.innerHTML = ` 
     <td>subtotal:</td>
     <td>$${totalCheckout}</td>
     `;
 
+	// Imprimimos el envio
+	tfootShipping.innerHTML = `<td>envio:</td>
+    <td>${
+		localStorage.getItem('envio') === 'Envio: $240' ? '$240' : 'gratis'
+	}</td>
+    `;
+
 	// Imprimimos el total (dsp sería + el envio)
 
 	orderTotal.innerHTML = `<th>total:</th>
-    <th>$${totalCheckout}</th>`;
-
-	console.log(totalCheckout);
+    <th>$${localStorage.getItem('totalCart')}</th>`;
 }
 
 feedCheckoutItems(JSON.parse(localStorage.getItem('data')));
 
-console.log('pepe');
+console.log(localStorage.getItem('envio'));

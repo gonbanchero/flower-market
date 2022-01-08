@@ -16,14 +16,16 @@
 
     <header class="header-container">
         <div class="logo-container">
-            <h1>Flower Market</h1>
+            <a href="index.html">
+                <h1>Flower Market</h1>
+            </a>
         </div>
         <div class="navbar-container">
             <ul class="navbar-items">
                 <li><a href="#" class="navbar-link">Home</a></li>
-                <li><a href="#" class="navbar-link">Productos</a></li>
-                <li><a href="#" class="navbar-link">Acerca De</a></li>
-                <li><a href="#" class="navbar-link">Contacto</a></li>
+                <li><a href="#products-area" class="navbar-link">Productos</a></li>
+                <li><a href="#how-it-works" class="navbar-link">Acerca De</a></li>
+                <li><a href="#footer-form" class="navbar-link">Contacto</a></li>
             </ul>
         </div>
 
@@ -74,6 +76,7 @@
                 <input type="text" id="search" placeholder="Tu código postal">
                 <button id="calcular">CALCULAR</button>
             </form>
+            <p class="shipping-text" id="shipping-text"></p>
         </div>
         <div class="takeaway" id="takeaway">
             <p>Retirá sin cargo en nuestro local</p>
@@ -88,7 +91,7 @@
             <h2 id="total-final-num"></h2>
         </div>
         <div class="iniciar-compra" id="iniciar-compra">
-            <a href="checkout.html">INICIAR COMPRA</a>
+            <button id="iniciar-compra">INICIAR COMPRA</button>
             <p id="seguir-viendo">seguir viendo productos</p>
         </div>
     </div>
@@ -101,7 +104,7 @@
         <div class="welcome-info">
             <h1>Suscripción de <strong>Ramos Florales</strong></h1>
             <h2>¡Recibilos en la comodidad de tu casa mensualmente!</h2>
-            <a href="#">Ver Ramos</a>
+            <a href="#products-area">Ver Ramos</a>
         </div>
     </section>
 
@@ -136,27 +139,34 @@
     <!-- Products ends-->
 
     <!-- How it Works -->
-    <section class="how-it-works">
+    <section class="how-it-works" id="how-it-works">
+
         <div class="how-it-works-info">
             <h2>¿Cómo funciona nuestro servicio?</h2>
             <div class="how-it-works-items">
                 <div class="how-it-works-item">
-                    <img src="assets/calendar.svg" alt="">
+                    <span class="iconify" data-icon="system-uicons:calendar-days" style="color: white;"
+                        data-width="45"></span>
                     <h3>Elegí la frecuencia</h3>
                     <p>¿Un ramo a la semana? ¿Un ramo cada 15 días? ¿Un ramo al mes? ¡Vos decidís!</p>
                 </div>
                 <div class="how-it-works-item">
-                    <img src="assets/calendar.svg" alt="">
+                    <span class="iconify" data-icon="emojione-monotone:bouquet" style="color: white;"
+                        data-width="45"></span>
+
                     <h3>Elegí el Ramo</h3>
                     <p>En cada entrega, podrás escoger qué ramo preferis entre varias opciones.</p>
                 </div>
                 <div class="how-it-works-item">
-                    <img src="assets/calendar.svg" alt="">
+                    <span class="iconify" data-icon="la:shipping-fast" style="color: white;" data-width="45"></span>
+
                     <h3>Envío gratis</h3>
                     <p>Podés cambiar la dirección de entrega cuando quieras sin costo adicional.</p>
                 </div>
                 <div class="how-it-works-item">
-                    <img src="assets/calendar.svg" alt="">
+                    <span class="iconify" data-icon="fluent:video-play-pause-24-regular" style="color: white;"
+                        data-width="45"></span>
+
                     <h3>Personalizá</h3>
                     <p>Podés modificar, pausar o cancelar tu suscripción cuando quieras.</p>
                 </div>
@@ -166,25 +176,36 @@
     </section>
     <!-- How it Works -->
 
+    <section class="contact-section">
+
+        <h3>¿Tenés dudas? Escribinos..</h3>
+
+        <div class="contact">
+            <div class=" footer-form" id="footer-form">
+                <form action="submit" class="contact-form">
+                    <input type="text" placeholder="Nombre">
+                    <input type="email" name="" id="" placeholder="Email">
+                    <textarea name="textarea" cols="100" rows="4">consulta</textarea>
+                </form>
+            </div>
+            <div class="footer-map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26305.024506274!2d-58.49743359999999!3d-34.4996375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb1baf0929a3f%3A0x5fd6a1cb686d647d!2sLa%20Parolaccia%20Trattoria%20(San%20Isidro)!5e0!3m2!1ses-419!2sar!4v1639792634640!5m2!1ses-419!2sar"
+                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+
+    </section>
+
     <footer class="footer">
-
-        <div class="footer-form">
-            <form action="submit">
-                <input type="text" placeholder="Nombre">
-                <input type="email" name="" id="" placeholder="Email">
-                <textarea name="textarea" cols="100" rows="5">consulta</textarea>
-            </form>
-        </div>
-        <div class="footer-map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26305.024506274!2d-58.49743359999999!3d-34.4996375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb1baf0929a3f%3A0x5fd6a1cb686d647d!2sLa%20Parolaccia%20Trattoria%20(San%20Isidro)!5e0!3m2!1ses-419!2sar!4v1639792634640!5m2!1ses-419!2sar"
-                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-
+        <p>Copyright © 2022 | Powered by <a href="https://gonbanchero.com" target="_blank">Gon Banchero</a></p>
     </footer>
 
     <script src="main.js" type="module"></script>
     <script src="products.js" type="module"></script>
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+
 </body>
 
 </html>
