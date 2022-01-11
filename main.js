@@ -181,8 +181,8 @@ cartButton.addEventListener('click', () => {
 	body.classList.add('stop-scrolling');
 
 	if (
-		JSON.parse(localStorage.getItem('totalCart')) !== 0 ||
-		cartList.length >= 1
+		cartList.length >= 1 ||
+		JSON.parse(localStorage.getItem('totalCart')) !== null
 	) {
 		feedCartModal(JSON.parse(localStorage.getItem('data')));
 		noProductsNotification.classList.add('display-none');
@@ -196,6 +196,8 @@ cartButton.addEventListener('click', () => {
 		totalCart.innerHTML = `<p class="total-sum"><strong>Subtotal (sin envío): <span>$${JSON.parse(
 			localStorage.getItem('totalCart')
 		)}</span></p>`;
+
+		shippingText.innerHTML = localStorage.getItem('envio');
 
 		offCanvasBody.classList.remove('display-none');
 		totalFinal.classList.remove('display-none');
@@ -259,13 +261,20 @@ function totalCartResult() {
 calculateShipping.addEventListener('click', (e) => {
 	e.preventDefault();
 	let postalCodeValue = postalCode.value;
-	console.log(postalCodeValue);
 
-	let totalCartReduce2 = cartList.reduce(
-		(acc, cur) =>
-			acc + parseInt(cur.price.slice(1, cur.price.length) * cur.quantity),
-		0
-	);
+	let totalCartReduce2 =
+		cartList.reduce(
+			(acc, cur) =>
+				acc +
+				parseInt(cur.price.slice(1, cur.price.length) * cur.quantity),
+			0
+		) ||
+		JSON.parse(localStorage.getItem('data')).reduce(
+			(acc, cur) =>
+				acc +
+				parseInt(cur.price.slice(1, cur.price.length) * cur.quantity),
+			0
+		);
 	console.log(totalCartReduce2);
 
 	if (postalCodeValue === '') {

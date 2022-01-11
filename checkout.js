@@ -63,13 +63,42 @@ const adress = document.querySelector('#adress-field');
 const phone = document.querySelector('#phone-field');
 const city = document.querySelector('#city-field');
 const finalizarCompra = document.querySelector('#finalizar-compra');
+const additionalInfo = document.querySelector('#additional-info');
 
 finalizarCompra.addEventListener('click', (e) => {
 	e.preventDefault();
 
-	checkRequired([firstName, lastName, email, adress, phone, city]);
-	checkNumber(phone);
-	checkEmail(email);
+	let isRequired = checkRequired([
+			firstName,
+			lastName,
+			email,
+			adress,
+			phone,
+			city,
+		]),
+		isNumber = checkNumber(phone),
+		isEmail = checkEmail(email);
+
+	console.log(isRequired, isNumber, isEmail);
+
+	let isFormValid = isRequired && isNumber && isEmail;
+
+	if (isFormValid) {
+		location.href = `https://api.whatsapp.com/send/?phone=5491173660749&text=PEDIDO%3A+%2A${Math.floor(
+			Math.random() * 100 + 1
+		)}%2A%0A%0A+${JSON.parse(localStorage.getItem('data'))
+			.map(
+				(products) =>
+					`%E2%80%94 ${products.name} > %2A${products.price}%2A%0A`
+			)
+			.join(' ')}%0A%2ATotal%3A+%24${JSON.parse(
+			localStorage.getItem('totalCart')
+		)}%2A%0A%0ANombre%3A+%2A${firstName.value}%2A%0ATeléfono%3A+%2A${
+			phone.value
+		}%2A%0AEmail%3A+%2A${email.value}%2A%0AInformación adicional%3A+%2A${
+			additionalInfo.value
+		}%2A%0A&app_absent=0`;
+	}
 });
 
 const showError = (input, mensaje) => {
@@ -87,6 +116,8 @@ const showSuccess = (input) => {
 };
 
 const checkRequired = (inputArr = []) => {
+	let valid = false;
+
 	if (inputArr.length === 0) {
 		return;
 	}
@@ -97,24 +128,33 @@ const checkRequired = (inputArr = []) => {
 			return;
 		}
 		showSuccess(input);
+		valid = true;
 	});
+	return valid;
 };
 
 const checkNumber = (input) => {
+	let valid = false;
+
 	if (isNaN(input.value)) {
 		showError(input, 'El campo debe ser numérico');
 	} else {
 		showSuccess(input);
+		valid = true;
 	}
+	return valid;
 };
 
 const checkEmail = (input) => {
+	let valid = false;
 	const re =
 		/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
 	if (re.test(input.value.trim())) {
 		showSuccess(input);
+		valid = true;
 	} else {
 		showError(input, 'El email no es válido');
 	}
+	return valid;
 };
