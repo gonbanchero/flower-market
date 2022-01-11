@@ -178,7 +178,7 @@ function cartNotificationBubble(quantity) {
 
 cartButton.addEventListener('click', () => {
 	modal.classList.remove('display-none');
-	body.classList.add('stop-scrolling');
+	// body.classList.add('stop-scrolling');
 
 	if (
 		cartList.length >= 1 ||
@@ -331,12 +331,12 @@ function deleteProductsCart(key) {
 
 closeModal.addEventListener('click', () => {
 	modal.classList.add('display-none');
-	body.classList.remove('stop-scrolling');
+	// body.classList.remove('stop-scrolling');
 });
 
 seguirViendo.addEventListener('click', () => {
 	modal.classList.add('display-none');
-	body.classList.remove('stop-scrolling');
+	// body.classList.remove('stop-scrolling');
 });
 
 takeAwayCheckbox.addEventListener('change', (e) => {
