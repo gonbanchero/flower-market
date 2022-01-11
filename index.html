@@ -8,6 +8,28 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="burger.css">
     <link rel="stylesheet" href="mediaqueries.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        ( function () {
+            emailjs.init( "user_VRcF84uTNf5bQ9l2SpU2e" );
+        } )();
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById( 'contact-form' ).addEventListener( 'submit', function ( event ) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                // this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm( 'contact_service', 'contact_form', this )
+                    .then( function () {
+                        console.log( 'SUCCESS!' );
+                    }, function ( error ) {
+                        console.log( 'FAILED...', error );
+                    } );
+            } );
+        }
+    </script>
 
     <title>Flower Market</title>
 </head>
@@ -209,11 +231,11 @@
 
         <div class="contact">
             <div class=" footer-form" id="footer-form">
-                <form action="submit" class="contact-form">
+                <form action="submit" class="contact-form" id="contact-form">
                     <input type="text" placeholder="Nombre">
                     <input type="email" name="" id="" placeholder="Email">
                     <textarea name="textarea" cols="100" rows="4" placeholder="consulta"></textarea>
-                    <button id="submit-form" onclick="sendEmail()">Enviar</button>
+                    <input id="submit-form" type="submit" value="Enviar"></input>
                 </form>
             </div>
             <div class="footer-map">
@@ -234,7 +256,6 @@
     <script src="main.js" type="module"></script>
     <script src="burger.js" type="module"></script>
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
-
 </body>
 
 </html>

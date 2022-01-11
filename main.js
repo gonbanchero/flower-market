@@ -2,7 +2,7 @@
 import productList from './products.js';
 
 //Declaración de variables y objetos
-let cartList = [];
+let cartList = JSON.parse(localStorage.getItem('data')) || [];
 
 let cartProduct = {
 	name: '',
