@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="burger.css">
+    <link rel="stylesheet" href="mediaqueries.css">
 
     <title>Flower Market</title>
 </head>
@@ -29,15 +31,40 @@
             </ul>
         </div>
 
+
+        <!-- MENU HAMBURGUESA -->
+
+
+        <div class="burger">
+            <ul class="menu hide">
+                <a href="#">
+                    <li>Home</li>
+                </a>
+                <a href="#products-area">
+                    <li>Productos</li>
+                </a>
+                <a href="#how-it-works">
+                    <li>Acerca De</li>
+                </a>
+                <a href="#footer-form">
+                    <li>Contacto</li>
+                </a>
+
+            </ul>
+        </div>
+
         <!-- login buttons -->
 
         <div class="login-container">
-            <button class="login-button">Login</button>
-            <button class="signup-button">Sign-up</button>
+            <!-- <button class="login-button">Login</button>
+            <button class="signup-button">Sign-up</button> -->
             <div class="cart-button" id="cart-button">
                 <img src="/assets/cart.svg" alt="" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                 <span class="notification" id="bubble"></span>
+            </div>
+            <div class="btn-burger">
+                <img src="assets/menu-inactive.svg" alt="">
             </div>
 
         </div>
@@ -191,7 +218,7 @@
             <div class="footer-map">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26305.024506274!2d-58.49743359999999!3d-34.4996375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb1baf0929a3f%3A0x5fd6a1cb686d647d!2sLa%20Parolaccia%20Trattoria%20(San%20Isidro)!5e0!3m2!1ses-419!2sar!4v1639792634640!5m2!1ses-419!2sar"
-                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    width="auto" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
 
@@ -202,8 +229,9 @@
         <p>Copyright © 2022 | Powered by <a href="https://gonbanchero.com" target="_blank">Gon Banchero</a></p>
     </footer>
 
-    <script src="main.js" type="module"></script>
     <script src="products.js" type="module"></script>
+    <script src="main.js" type="module"></script>
+    <script src="burger.js" type="module"></script>
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
 
 </body>

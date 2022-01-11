@@ -26,18 +26,24 @@
 
 .header-container {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	margin: 0 auto;
 	width: 70%;
+	margin: 0 auto;
 	max-height: 100px;
 	padding: 20px 0px;
+	background-color: white;
+	transition: 0.6s;
 }
 
 .logo-container {
 	color: var(--primario);
 }
 
+.navbar-container {
+	position: relative;
+}
 .navbar-items {
 	list-style: none;
 	display: flex;
@@ -325,7 +331,7 @@
 	align-items: center;
 	gap: 30px;
 	padding: 20px 30px;
-	border: 1px solid var(--lightgray);
+	border: 1px solid #e0e0e0;
 	border-radius: 10px;
 }
 
@@ -714,6 +720,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 .footer p {

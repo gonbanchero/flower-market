@@ -287,7 +287,9 @@ calculateShipping.addEventListener('click', (e) => {
 iniciarCompraBtn.addEventListener('click', (e) => {
 	takeAwayCheckbox.checked || shippingText.innerText !== ''
 		? (location.href = 'checkout.html')
-		: alert('algo paso che');
+		: alert(
+				'Ingresá tu código postal o selecciona retiro en nuestro local'
+		  );
 });
 
 // Eliminamos artículos del carrito

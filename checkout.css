@@ -3,6 +3,8 @@
 	--secundario: #ba87c9;
 	--textos: #030303;
 	--lightgray: #f7f7f7;
+	--error-color: #e74c3c;
+	--success-color: #2ecc71;
 }
 
 .main-background {
@@ -91,6 +93,38 @@ label {
 	border: 1px solid #e4e4e4;
 	margin: 7px 0px;
 	background-color: white;
+}
+
+.checkout-form input[type='email'] {
+	background-color: #ba87c9;
+	display: block;
+	width: 100%;
+	padding: 5px;
+	border-radius: 3px;
+	border: 1px solid #e4e4e4;
+	margin: 7px 0px;
+	background-color: white;
+}
+
+.checkout-form.success input {
+	border-color: var(--success-color);
+}
+
+.checkout-form.error input {
+	border-color: var(--error-color);
+}
+
+.checkout-form small {
+	color: var(--error-color);
+	/* position: absolute; */
+	bottom: 0;
+	left: 0;
+	visibility: hidden;
+}
+
+.checkout-form.error small {
+	visibility: visible;
+	margin-top: -10px;
 }
 
 .additional-info input[type='text'],

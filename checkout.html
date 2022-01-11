@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="checkout-mediaqueries.css">
+
+
 
     <title>Flower Market</title>
 </head>
@@ -21,6 +24,7 @@
                 <h1>Flower Market</h1>
             </a>
         </div>
+
     </header>
 
     <!-- header section ends -->
@@ -49,32 +53,49 @@
                 <div class="checkout-form-container">
 
                     <div class="form-left">
-                        <form action="checkout" class="checkout-form">
+                        <div class="checkout-form" id="checkout-form">
                             <label for="first-name-field" class="required">Nombre</label>
-                            <input type="text" id="first-name-field" class="required">
-                            <label for="email-field" class="required">Email</label>
-                            <input type="text" id="email-field">
+                            <input type="text" id="first-name-field" class="required" id="first-name-field">
+                            <small>Hay un error</small>
+                        </div>
+                        <div class="checkout-form" id="checkout-form">
+                            <label for=" email-field" class="required">Email</label>
+                            <input type="email" id="email-field" id="email-field">
+                            <small>Hay un error</small>
+                        </div>
+                        <div class="checkout-form" id="checkout-form">
                             <label for="adress-field" class="required">Dirección</label>
-                            <input type="text" id="adress-field">
-                        </form>
+                            <input type="text" id="adress-field" id="adress-field">
+                            <small>Hay un error</small>
+                        </div>
                     </div>
+
 
                     <div class="form-right">
-                        <form action="checkout" class="checkout-form">
+                        <div class="checkout-form" id="checkout-form">
                             <label for="last-name-field" class="required">Apellido</label>
-                            <input type="text" id="last-name-field">
+                            <input type="text" id="last-name-field" id="last-name-field">
+                            <small>Hay un error</small>
+                        </div>
+                        <div class="checkout-form" id="checkout-form">
                             <label for="phone-field" class="required">Teléfono</label>
-                            <input type="text" id="phone-field">
+                            <input type="text" id="phone-field" id="phone-field">
+                            <small>Hay un error</small>
+                        </div>
+                        <div class="checkout-form" id="checkout-form">
                             <label for="city-field" class="required">Ciudad</label>
-                            <input type="text" id="city-field">
+                            <input type="text" id="city-field" id="cityfield">
+                            <small>Hay un error</small>
+                        </div>
                         </form>
                     </div>
-
                 </div>
+
+
 
                 <div class="additional-info">
                     <h3>Información adicional</h3>
-                    <label for="city-field" class="required">Ingresa tus comentarios (opcional)</label>
+                    <label for="city-field">Ingresa tus comentarios (opcional)</label>
                     <textarea name="textarea" rows="5" cols="100%"></textarea>
                 </div>
 
@@ -113,8 +134,7 @@
                         </div>
                     </div>
 
-                    <button class="finalizar-compra">Finalizar Compra</button>
-
+                    <button class="finalizar-compra" id="finalizar-compra">Finalizar Compra</button>
                 </div>
             </div>
 
@@ -191,10 +211,11 @@
 
                 </div>
 
-
-
             </div>
-        </main>
+
+
+    </div>
+    </main>
     </div>
 
     <footer class="footer">
@@ -208,6 +229,7 @@
 
     <script src="checkout.js" type="module"></script>
     <script src="products.js" type="module"></script>
+    <script src="burger.js" type="module"></script>
 </body>
 
 </html>

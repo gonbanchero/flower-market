@@ -1,0 +1,53 @@
+.burger {
+	position: absolute;
+	width: 100%;
+	top: 13%;
+}
+
+.btn-burger {
+	width: 10%;
+	z-index: 2;
+	text-align: center;
+}
+
+.btn-burger img {
+	width: 40%;
+}
+
+.active {
+	position: relative;
+}
+
+.hide {
+	display: none;
+}
+
+.menu {
+	top: 10%;
+	width: 100vw;
+	padding: 30px;
+	text-align: center;
+	background: rgb(240, 240, 240);
+	list-style-type: none;
+	-webkit-font-smoothing: antialiased;
+	/* to stop flickering of text in safari */
+
+	transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+.menu li {
+	padding: 5px 0;
+	font-size: 17px;
+}
+
+.menu a li {
+	text-decoration: none;
+	color: #030303;
+}
+
+/*
+* And let's slide it in from the left
+*/
+#menuToggle input:checked ~ ul {
+	transform: none;
+}

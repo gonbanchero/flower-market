@@ -28,7 +28,7 @@ let productList = [
 
 	{
 		name: 'ramo verano',
-		category: 'estacionales',
+		category: 'estacion',
 		price: '2000',
 		quantity: 1,
 		img: '/assets/ramo.png',
@@ -46,7 +46,7 @@ let productList = [
 
 	{
 		name: 'ramo premium',
-		category: 'prueba',
+		category: 'estacion',
 		price: '2000',
 		quantity: 1,
 		img: '/assets/ramo.png',

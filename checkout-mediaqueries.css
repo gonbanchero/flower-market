@@ -1,0 +1,185 @@
+@media (min-width: 1025px) and (max-width: 1300px) {
+	.checkout {
+		width: 90%;
+	}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+	.checkout-header {
+		width: 90%;
+		justify-content: space-evenly;
+	}
+
+	.checkout-header-center {
+		width: 50%;
+		padding: 4% 0% 0% 0%;
+	}
+
+	.checkout-header-center p {
+		padding-right: 10%;
+	}
+
+	.checkout {
+		width: 90%;
+		flex-wrap: wrap;
+	}
+
+	.checkout-form-main {
+		width: 100%;
+	}
+
+	.checkout-reviews {
+		width: 100%;
+		padding: 60px 0px;
+	}
+
+	.checkout-reviews h2 {
+		font-size: 2rem;
+	}
+
+	.review-image {
+		width: 100%;
+		margin-top: 0px;
+	}
+
+	.review-image img {
+		width: 30%;
+	}
+
+	.reasons {
+		padding: 20px 60px;
+	}
+
+	.reasons .textos {
+		padding: 0px 100px 0px 0px;
+	}
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+	.checkout-header {
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		height: auto;
+	}
+
+	.checkout-header-left {
+		width: 80%;
+	}
+
+	.checkout-header-left img {
+		text-align: center;
+	}
+
+	.checkout-header-center {
+		width: 80%;
+	}
+
+	.checkout-header-center p {
+		text-align: center;
+		padding: 5% 5%;
+	}
+
+	.checkout-header-center h3 {
+		text-align: center;
+	}
+
+	.checkout {
+		width: 90%;
+		flex-wrap: wrap;
+	}
+
+	.checkout-form-main {
+		width: 100%;
+	}
+
+	.checkout-reviews {
+		width: 100%;
+		padding: 60px 0px;
+	}
+
+	.checkout-reviews h2 {
+		font-size: 1.5rem;
+	}
+
+	.review-image {
+		width: 100%;
+		margin-top: 0px;
+	}
+
+	.review-image img {
+		width: 30%;
+	}
+
+	.reasons {
+		padding: 20px 60px;
+	}
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.checkout-header {
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		height: auto;
+	}
+
+	.checkout-header-left {
+		width: 90%;
+	}
+
+	.checkout-header-left img {
+		text-align: center;
+	}
+
+	.checkout-header-center {
+		width: 90%;
+	}
+
+	.checkout-header-center p {
+		text-align: center;
+		padding: 5% 0%;
+	}
+
+	.checkout-header-center h3 {
+		text-align: center;
+	}
+
+	.checkout {
+		width: 90%;
+		flex-wrap: wrap;
+	}
+
+	.checkout-form-main {
+		width: 100%;
+		padding: 20px;
+	}
+
+	.checkout-form input[type='text'] {
+		width: 100%;
+	}
+
+	.checkout-reviews {
+		width: 100%;
+		padding: 60px 0px;
+	}
+
+	.checkout-reviews h2 {
+		font-size: 1.5rem;
+	}
+
+	.review-image {
+		width: 100%;
+		margin-top: 0px;
+	}
+
+	.review-image img {
+		width: 30%;
+	}
+
+	.reasons {
+		padding: 20px 60px;
+	}
+}

@@ -1,0 +1,326 @@
+@media (min-width: 1200px) {
+	.btn-burger {
+		display: none;
+	}
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+	.btn-burger {
+		display: none;
+	}
+
+	.header-container {
+		width: 80%;
+	}
+
+	.logo-container a {
+		font-size: 0.8rem;
+	}
+
+	.navbar-link {
+		font-size: 0.9rem;
+	}
+
+	.cart-button img {
+		width: 20px;
+	}
+
+	.notification {
+		font-size: 10px;
+		padding: 4px 7px;
+		border-radius: 50px;
+		left: 15px;
+		top: 15px;
+	}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+	.navbar-link {
+		display: none;
+	}
+
+	.btn-burger {
+		display: flex;
+	}
+
+	.header-container {
+		width: 80%;
+	}
+
+	.login-container {
+		justify-content: right;
+		gap: 40px;
+		width: 30%;
+	}
+
+	.btn-burger {
+		width: 25%;
+	}
+
+	.burger {
+		top: 8%;
+	}
+
+	.logo-container a {
+		font-size: 0.8rem;
+	}
+
+	.navbar-link {
+		font-size: 0.9rem;
+	}
+
+	.cart-button img {
+		width: 20px;
+	}
+
+	.notification {
+		font-size: 10px;
+		padding: 4px 7px;
+		border-radius: 50px;
+		left: 15px;
+		top: 15px;
+	}
+
+	.how-it-works-items {
+		width: 90%;
+	}
+
+	.how-it-works-item h3 {
+		font-size: 0.9rem;
+	}
+
+	.how-it-works-item p {
+		font-size: 0.8rem;
+	}
+
+	.footer-map {
+		max-width: 40%;
+	}
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+	.btn-burger {
+		display: flex;
+	}
+
+	.header-container {
+		width: 80%;
+	}
+
+	.login-container {
+		justify-content: right;
+		gap: 40px;
+		width: 30%;
+	}
+
+	.btn-burger {
+		width: 40%;
+	}
+
+	.burger {
+		top: 8%;
+	}
+
+	.navbar-link {
+		display: none;
+	}
+
+	.cart-button img {
+		width: 20px;
+	}
+
+	.notification {
+		font-size: 10px;
+		padding: 4px 7px;
+		border-radius: 50px;
+		left: 15px;
+		top: 15px;
+	}
+
+	.welcome-info h1 {
+		font-size: 2rem;
+	}
+
+	.welcome-info h2 {
+		font-size: 1.1rem;
+	}
+
+	.product-title {
+		font-size: 1.5rem;
+	}
+
+	.product-filter {
+		width: 100%;
+		gap: 15px;
+		justify-content: center;
+	}
+
+	.filter-item img {
+		width: 60px;
+		padding: 10px;
+	}
+
+	.filter-item p {
+		font-size: 0.9rem;
+	}
+
+	.how-it-works-info h2 {
+		font-size: 2rem;
+		padding: 30px 0px;
+	}
+
+	.how-it-works-items {
+		width: 90%;
+		flex-wrap: wrap;
+	}
+
+	.how-it-works-item h3 {
+		font-size: 1rem;
+	}
+
+	.how-it-works-item p {
+		font-size: 0.9rem;
+	}
+
+	.footer-form {
+		min-width: 50%;
+	}
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.btn-burger {
+	}
+
+	.header-container {
+		width: 80%;
+	}
+
+	.login-container {
+		justify-content: space-evenly;
+		gap: 10px;
+		width: 50%;
+	}
+
+	.btn-burger img {
+		width: 30px;
+	}
+
+	.burger {
+		top: 10%;
+	}
+
+	.logo-container a {
+		font-size: 0.7rem;
+	}
+
+	.navbar-link {
+		display: none;
+	}
+
+	.cart-button {
+		width: auto;
+	}
+	.cart-button img {
+		width: 30px;
+	}
+
+	.notification {
+		font-size: 10px;
+		padding: 4px 7px;
+		border-radius: 50px;
+		left: 15px;
+		top: 15px;
+	}
+
+	.welcome {
+		min-height: 50vh;
+	}
+
+	.welcome-info h1 {
+		font-size: 1.8rem;
+		text-align: center;
+	}
+
+	.welcome-info h2 {
+		font-size: 1.2rem;
+		text-align: center;
+	}
+
+	.welcome-info a {
+		font-size: 0.8rem;
+	}
+
+	.product-title {
+		font-size: 1.8rem;
+		text-align: center;
+	}
+
+	.product-filter {
+		width: 100%;
+		gap: 12px;
+		justify-content: center;
+	}
+
+	.filter-item img {
+		width: 50px;
+		padding: 10px;
+	}
+
+	.filter-item p {
+		font-size: 1rem;
+	}
+
+	.how-it-works-info h2 {
+		font-size: 2rem;
+		padding: 0px 20px;
+		text-align: center;
+	}
+
+	.how-it-works-items {
+		width: 90%;
+		flex-wrap: wrap;
+	}
+
+	.how-it-works-item {
+		min-width: 80%;
+	}
+	.how-it-works-item h3 {
+		font-size: 1.2rem;
+	}
+
+	.how-it-works-item p {
+		font-size: 1rem;
+	}
+
+	.contact-section h3 {
+		font-size: 2rem;
+		text-align: center;
+		padding: 0px 20px;
+	}
+	.footer-form {
+		min-width: 100%;
+	}
+
+	.contact {
+		flex-wrap: wrap;
+	}
+
+	.offcanvas {
+		position: absolute;
+		width: 100vw;
+		max-height: 100vh;
+	}
+
+	.offcanvas-header h5 {
+		font-size: 1rem;
+	}
+
+	.tarjeta-takeaway {
+		gap: 15px;
+		padding: 20px 30px;
+	}
+
+	.tarjeta-takeaway p {
+		font-size: 0.9rem;
+	}
+}
