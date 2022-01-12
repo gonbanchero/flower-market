@@ -5,6 +5,8 @@
 	--secundario: #ba87c9;
 	--textos: #030303;
 	--lightgray: #f7f7f7;
+	--error-color: #e74c3c;
+	--success-color: #2ecc71;
 }
 
 * {
@@ -400,7 +402,7 @@
 	display: flex;
 	margin: 0 auto;
 	width: 100%;
-	background-image: url(/assets/flores-background.jpg);
+	background-image: url(../assets/flores-background.jpg);
 	min-height: 600px;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -583,7 +585,7 @@
 /* ========== HOW IT WORKS SECTION ========== */
 
 .how-it-works {
-	background-image: url(assets/florista-background.jpg);
+	background-image: url(../assets/florista-background.jpg);
 	width: 100%;
 	min-height: 500px;
 	background-position: center;
@@ -677,12 +679,20 @@
 }
 
 .footer-form {
-	max-width: 50%;
+	max-width: 40%;
+	background-color: #f0f0f0;
+	padding: 30px;
+}
+
+.button-submit {
+	padding: 10px 30px;
+	background-color: var(--secundario);
+	color: white;
+	border-radius: 7px;
+	margin-top: 20px;
 }
 
 .contact-form {
-	background-color: #f0f0f0;
-	padding: 30px;
 	border-radius: 5px;
 }
 
@@ -691,8 +701,8 @@
 	width: 100%;
 	padding: 15px 20px;
 	border: 1px solid var(--lightgray);
-	margin-bottom: 20px;
 	border-radius: 5px;
+	margin-top: 15px;
 	color: var(--textos);
 }
 
@@ -702,6 +712,7 @@
 	border: 1px solid var(--lightgray);
 	border-radius: 5px;
 	color: var(--textos);
+	margin-top: 15px;
 }
 
 .stop-scrolling {
@@ -723,6 +734,10 @@
 	flex-wrap: wrap;
 }
 
+.footer-map {
+	width: 40%;
+}
+
 .footer p {
 	color: white;
 }
@@ -730,4 +745,42 @@
 .footer a {
 	color: white;
 	text-decoration: underline;
+}
+
+.footer-form small {
+	visibility: hidden;
+}
+
+.contact-form.success input {
+	border-color: var(--success-color);
+}
+
+.contact-form.success textarea {
+	border-color: var(--success-color);
+}
+
+.contact-form.error input {
+	border-color: var(--error-color);
+}
+
+.contact-form.error textarea {
+	border-color: var(--error-color);
+}
+
+.contact-form small {
+	color: var(--error-color);
+	/* position: absolute; */
+	bottom: 0;
+	left: 0;
+	visibility: hidden;
+}
+
+.contact-form.error small {
+	visibility: visible;
+}
+
+.small {
+	font-size: 15px;
+	padding: 0px 20px;
+	color: var(--success-color);
 }
