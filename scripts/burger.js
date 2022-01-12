@@ -1,9 +1,6 @@
 const menuBurger = document.querySelector('.menu');
-console.log(menuBurger);
 const btnBurger = document.querySelector('.btn-burger');
-console.log(btnBurger);
 const imgBurger = document.querySelector('.btn-burger img');
-console.log(imgBurger);
 
 btnBurger.addEventListener('click', mostrarOcultarBurger);
 

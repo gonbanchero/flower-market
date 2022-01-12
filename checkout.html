@@ -57,22 +57,13 @@
                             <small>Hay un error</small>
                         </div>
                         <div class="checkout-form" id="checkout-form">
-                            <label for=" email-field" class="required">Email</label>
-                            <input type="email" id="email-field" id="email-field">
-                            <small>Hay un error</small>
-                        </div>
-                        <div class="checkout-form" id="checkout-form">
-                            <label for="adress-field" class="required">Dirección</label>
-                            <input type="text" id="adress-field" id="adress-field">
-                            <small>Hay un error</small>
-                        </div>
-                    </div>
-
-
-                    <div class="form-right">
-                        <div class="checkout-form" id="checkout-form">
                             <label for="last-name-field" class="required">Apellido</label>
                             <input type="text" id="last-name-field" id="last-name-field">
+                            <small>Hay un error</small>
+                        </div>
+                        <div class="checkout-form" id="checkout-form">
+                            <label for=" email-field" class="required">Email</label>
+                            <input type="email" id="email-field" id="email-field">
                             <small>Hay un error</small>
                         </div>
                         <div class="checkout-form" id="checkout-form">
@@ -81,12 +72,17 @@
                             <small>Hay un error</small>
                         </div>
                         <div class="checkout-form" id="checkout-form">
+                            <label for="adress-field" class="required">Dirección</label>
+                            <input type="text" id="adress-field" id="adress-field">
+                            <small>Hay un error</small>
+                        </div>
+                        <div class="checkout-form" id="checkout-form">
                             <label for="city-field" class="required">Ciudad</label>
                             <input type="text" id="city-field" id="cityfield">
                             <small>Hay un error</small>
                         </div>
-                        </form>
                     </div>
+
                 </div>
 
 
@@ -123,13 +119,25 @@
                     </table>
 
                     <div class="checkout-payment">
-                        <input type="radio">
-                        <label>Pagar con MercadoPago</label>
-                        <div class="checkout-payment-details">
-                            <p>Podés pagar en efectivo o con tarjeta</p>
-                            <div class="flechita">
+                        <div class="medio-de-pago">
+                            <input type="radio" id="mercado-pago">
+                            <label>Pagar con MercadoPago</label>
+                            <div class="checkout-payment-details">
+                                <p>Podés pagar con débito o crédito</p>
+                                <div class="flechita">
+                                </div>
                             </div>
                         </div>
+                        <!-- <div class="medio-de-pago">
+                            <input type="radio" id="efectivo">
+                            <label>Pagar en Efectivo</label>
+                            <div class="checkout-payment-details">
+                                <p>Podés pagar en efectivo o con tarjeta</p>
+                                <div class="flechita">
+                                </div>
+                            </div>
+                        </div> -->
+
                     </div>
 
                     <button class="finalizar-compra" id="finalizar-compra">Finalizar Compra</button>

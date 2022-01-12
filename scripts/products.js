@@ -4,16 +4,16 @@ let productList = [
 		category: 'flores',
 		price: '2000',
 		quantity: 1,
-		img: '/assets/ramo.png',
+		img: '/assets/ramo3.png',
 		key: 1,
 	},
 
 	{
-		name: 'ramo seco',
+		name: 'ramo bosque',
 		category: 'secos',
 		price: '2400',
 		quantity: 1,
-		img: '/assets/ramo.png',
+		img: '/assets/ramo1.png',
 		key: 2,
 	},
 
@@ -27,11 +27,11 @@ let productList = [
 	},
 
 	{
-		name: 'ramo verano',
+		name: 'ramo fresco',
 		category: 'estacion',
 		price: '2000',
 		quantity: 1,
-		img: '/assets/ramo.png',
+		img: '/assets/ramo2.png',
 		key: 4,
 	},
 
@@ -40,16 +40,16 @@ let productList = [
 		category: 'flores',
 		price: '2000',
 		quantity: 1,
-		img: '/assets/ramo.png',
+		img: '/assets/ramo4.png',
 		key: 5,
 	},
 
 	{
-		name: 'ramo premium',
+		name: 'ramo verano',
 		category: 'estacion',
 		price: '2000',
 		quantity: 1,
-		img: '/assets/ramo.png',
+		img: '/assets/ramo5.png',
 		key: 6,
 	},
 ];

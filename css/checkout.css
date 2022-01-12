@@ -72,16 +72,19 @@
 }
 
 .form-left {
-	width: 50%;
-}
-
-.form-right {
-	width: 50%;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
 }
 
 label {
 	display: block;
 	font-size: 13px;
+}
+
+.checkout-form {
+	width: 49%;
 }
 
 .checkout-form input[type='text'] {
@@ -218,6 +221,10 @@ td {
 	border-right: 5px solid transparent;
 	border-bottom: 5px solid #eaeaea;
 }
+
+/* .medio-de-pago:last-child {
+	margin-top: 25px;
+} */
 
 .finalizar-compra {
 	margin-top: 10px;

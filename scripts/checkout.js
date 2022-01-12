@@ -4,6 +4,8 @@ const tBodyItems = document.querySelector('#tbody-items');
 const tFootSubTotal = document.querySelector('#tfoot-subtotal');
 const orderTotal = document.querySelector('#order-total');
 const tfootShipping = document.querySelector('#tfoot-shipping');
+const mercadoPago = document.querySelector('#mercado-pago');
+const efectivo = document.querySelector('#efecivo');
 
 function feedCheckoutItems(product) {
 	console.log(product);
@@ -65,42 +67,6 @@ const city = document.querySelector('#city-field');
 const finalizarCompra = document.querySelector('#finalizar-compra');
 const additionalInfo = document.querySelector('#additional-info');
 
-finalizarCompra.addEventListener('click', (e) => {
-	e.preventDefault();
-
-	let isRequired = checkRequired([
-			firstName,
-			lastName,
-			email,
-			adress,
-			phone,
-			city,
-		]),
-		isNumber = checkNumber(phone),
-		isEmail = checkEmail(email);
-
-	console.log(isRequired, isNumber, isEmail);
-
-	let isFormValid = isRequired && isNumber && isEmail;
-
-	if (isFormValid) {
-		location.href = `https://api.whatsapp.com/send/?phone=5491173660749&text=PEDIDO%3A+%2A${Math.floor(
-			Math.random() * 100 + 1
-		)}%2A%0A%0A+${JSON.parse(localStorage.getItem('data'))
-			.map(
-				(products) =>
-					`%E2%80%94 ${products.name} > %2A${products.price}%2A%0A`
-			)
-			.join(' ')}%0A%2ATotal%3A+%24${JSON.parse(
-			localStorage.getItem('totalCart')
-		)}%2A%0A%0ANombre%3A+%2A${firstName.value}%2A%0ATeléfono%3A+%2A${
-			phone.value
-		}%2A%0AEmail%3A+%2A${email.value}%2A%0AInformación adicional%3A+%2A${
-			additionalInfo.value
-		}%2A%0A&app_absent=0`;
-	}
-});
-
 const showError = (input, mensaje) => {
 	const formControl = input.parentElement;
 
@@ -136,7 +102,7 @@ const checkRequired = (inputArr = []) => {
 const checkNumber = (input) => {
 	let valid = false;
 
-	if (isNaN(input.value)) {
+	if (isNaN(input.value) || input.value === '') {
 		showError(input, 'El campo debe ser numérico');
 	} else {
 		showSuccess(input);
@@ -158,3 +124,61 @@ const checkEmail = (input) => {
 	}
 	return valid;
 };
+
+// Función iniciadora del checkout
+
+finalizarCompra.addEventListener('click', (e) => {
+	e.preventDefault();
+
+	let isRequired = checkRequired([
+			firstName,
+			lastName,
+			email,
+			adress,
+			phone,
+			city,
+		]),
+		isNumber = checkNumber(phone),
+		isEmail = checkEmail(email);
+
+	// console.log(isRequired, isNumber, isEmail);
+
+	let isFormValid = isRequired && isNumber && isEmail;
+
+	if (isFormValid) {
+		window.open(
+			`https://api.whatsapp.com/send/?phone=5491173660749&text=PEDIDO%3A+%2A${Math.floor(
+				Math.random() * 100 + 1
+			)}%2A%0A%0A+${JSON.parse(localStorage.getItem('data'))
+				.map(
+					(products) =>
+						`%E2%80%94 ${products.name} > %2A${products.price}%2A%0A`
+				)
+				.join(' ')}%0A%2ATotal%3A+%24${JSON.parse(
+				localStorage.getItem('totalCart')
+			)}%2A%0A%0ANombre%3A+%2A${firstName.value}%2A%0ATeléfono%3A+%2A${
+				phone.value
+			}%2A%0AEmail%3A+%2A${
+				email.value
+			}%2A%0AInformación adicional%3A+%2A${
+				additionalInfo.value
+			}%2A%0A&app_absent=0`,
+			'_blank'
+		);
+
+		// location.href = `https://api.whatsapp.com/send/?phone=5491173660749&text=PEDIDO%3A+%2A${Math.floor(
+		// 	Math.random() * 100 + 1
+		// )}%2A%0A%0A+${JSON.parse(localStorage.getItem('data'))
+		// 	.map(
+		// 		(products) =>
+		// 			`%E2%80%94 ${products.name} > %2A${products.price}%2A%0A`
+		// 	)
+		// 	.join(' ')}%0A%2ATotal%3A+%24${JSON.parse(
+		// 	localStorage.getItem('totalCart')
+		// )}%2A%0A%0ANombre%3A+%2A${firstName.value}%2A%0ATeléfono%3A+%2A${
+		// 	phone.value
+		// }%2A%0AEmail%3A+%2A${email.value}%2A%0AInformación adicional%3A+%2A${
+		// 	additionalInfo.value
+		// }%2A%0A&app_absent=0`;
+	}
+});

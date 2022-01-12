@@ -12,7 +12,82 @@
     <title>Flower Market</title>
 </head>
 
+<!-- Off canvas modal carrito -->
+<div class="offcanvas display-none" id="offcanvas">
+    <div class="offcanvas-header">
+        <h5>Tu Carrito de Compras</h5>
+        <div class="close-modal">
+            <button id="close-modal">X</button>
+        </div>
+        <button type="button" class="btn-close text-reset"></button>
+    </div>
+    <div class="offcanvas-body display-none" id="offcanvas-body">
+        <div class="cart-list-headers" id="cart-list-headers">
+            <h2>Producto</h2>
+            <h2>Cantidad</h2>
+            <h2>Precio</h2>
+            <h2>Borrar</h2>
+        </div>
+    </div>
+    <div class="noproducts-notification " id="noproducts-notification">
+        <p>No hay productos agregados al carrito</p>
+    </div>
+    <div class="cart-modal-products" id="cart-modal-products">
+        <!-- Aca se renderean los productos -->
+    </div>
+    <div class="total-cart" id="total-cart">
+        <!-- Aca sale el total del carrito -->
+    </div>
+    <div class="shipping-rate" id="shipping-rate">
+        <p><span>Envío gratis</span> superando los $3.000</p>
+        <form class="form-calcular">
+            <input type="text" id="search" placeholder="Tu código postal">
+            <button id="calcular">CALCULAR</button>
+        </form>
+        <p class="shipping-text" id="shipping-text"></p>
+    </div>
+    <div class="takeaway" id="takeaway">
+        <p>Retirá sin cargo en nuestro local</p>
+        <div class="tarjeta-takeaway" id="tarjeta-takeaway">
+            <input type="checkbox" name="" id="check-takeaway">
+            <p>Palermo - Av.Santa Fe 1982 - Atención de Lun a Vie de 10 a 18hs</p>
+            <h3>Gratis</h3>
+        </div>
+    </div>
+    <div class="total-final" id="total-final">
+        <h2>Total:</h2>
+        <h2 id="total-final-num"></h2>
+    </div>
+    <div class="iniciar-compra" id="iniciar-compra">
+        <button id="iniciar-compra">INICIAR COMPRA</button>
+        <p id="seguir-viendo">seguir viendo productos</p>
+    </div>
+</div>
+<!-- Off canvas modal carrito -->
+
 <body id="body-container">
+
+
+    <!-- MENU HAMBURGUESA -->
+
+
+    <div class="burger">
+        <ul class="menu hide">
+            <a href="#">
+                <li>Home</li>
+            </a>
+            <a href="#products-area">
+                <li>Productos</li>
+            </a>
+            <a href="#how-it-works">
+                <li>Acerca De</li>
+            </a>
+            <a href="#footer-form">
+                <li>Contacto</li>
+            </a>
+
+        </ul>
+    </div>
 
     <!-- header section starts -->
 
@@ -32,26 +107,6 @@
         </div>
 
 
-        <!-- MENU HAMBURGUESA -->
-
-
-        <div class="burger">
-            <ul class="menu hide">
-                <a href="#">
-                    <li>Home</li>
-                </a>
-                <a href="#products-area">
-                    <li>Productos</li>
-                </a>
-                <a href="#how-it-works">
-                    <li>Acerca De</li>
-                </a>
-                <a href="#footer-form">
-                    <li>Contacto</li>
-                </a>
-
-            </ul>
-        </div>
 
         <!-- login buttons -->
 
@@ -72,56 +127,7 @@
 
     <!-- cart offcanvas -->
 
-    <div class="offcanvas display-none" id="offcanvas">
-        <div class="offcanvas-header">
-            <h5>Tu Carrito de Compras</h5>
-            <div class="close-modal">
-                <button id="close-modal">X</button>
-            </div>
-            <button type="button" class="btn-close text-reset"></button>
-        </div>
-        <div class="offcanvas-body display-none" id="offcanvas-body">
-            <div class="cart-list-headers" id="cart-list-headers">
-                <h2>Producto</h2>
-                <h2>Cantidad</h2>
-                <h2>Precio</h2>
-                <h2>Borrar</h2>
-            </div>
-        </div>
-        <div class="noproducts-notification " id="noproducts-notification">
-            <p>No hay productos agregados al carrito</p>
-        </div>
-        <div class="cart-modal-products" id="cart-modal-products">
-            <!-- Aca se renderean los productos -->
-        </div>
-        <div class="total-cart" id="total-cart">
-            <!-- Aca sale el total del carrito -->
-        </div>
-        <div class="shipping-rate" id="shipping-rate">
-            <p><span>Envío gratis</span> superando los $3.000</p>
-            <form class="form-calcular">
-                <input type="text" id="search" placeholder="Tu código postal">
-                <button id="calcular">CALCULAR</button>
-            </form>
-            <p class="shipping-text" id="shipping-text"></p>
-        </div>
-        <div class="takeaway" id="takeaway">
-            <p>Retirá sin cargo en nuestro local</p>
-            <div class="tarjeta-takeaway" id="tarjeta-takeaway">
-                <input type="checkbox" name="" id="check-takeaway">
-                <p>Palermo - Av.Santa Fe 1982 - Atención de Lun a Vie de 10 a 18hs</p>
-                <h3>Gratis</h3>
-            </div>
-        </div>
-        <div class="total-final" id="total-final">
-            <h2>Total:</h2>
-            <h2 id="total-final-num"></h2>
-        </div>
-        <div class="iniciar-compra" id="iniciar-compra">
-            <button id="iniciar-compra">INICIAR COMPRA</button>
-            <p id="seguir-viendo">seguir viendo productos</p>
-        </div>
-    </div>
+
 
     <!-- header section ends -->
 
@@ -145,7 +151,7 @@
 
         <div class="product-filter" id="product-filter">
             <div class="filter-item">
-                <img src="/assets/menu-icon.png" alt="todos" class="filter-button">
+                <img src="/assets/flower-filter-ok.png" alt="todos" class="filter-button">
                 <p>Todos</p>
             </div>
             <!-- Here renders the filter buttons -->
@@ -172,27 +178,47 @@
             <h2>¿Cómo funciona nuestro servicio?</h2>
             <div class="how-it-works-items">
                 <div class="how-it-works-item">
-                    <span class="iconify" data-icon="system-uicons:calendar-days" style="color: white;"
-                        data-width="45"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                        style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
+                        <path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path>
+                        <path
+                            d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z">
+                        </path>
+                    </svg>
                     <h3>Elegí la frecuencia</h3>
                     <p>¿Un ramo a la semana? ¿Un ramo cada 15 días? ¿Un ramo al mes? ¡Vos decidís!</p>
                 </div>
                 <div class="how-it-works-item">
-                    <span class="iconify" data-icon="emojione-monotone:bouquet" style="color: white;"
-                        data-width="45"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                        style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
+                        <path
+                            d="M10.84 21.871 12 22a10.221 10.221 0 0 0-9.013-8.891L2 13l.021.173a10.001 10.001 0 0 0 8.819 8.698zm11.139-8.698L22 13l-.987.109c-4.7.523-8.427 4.2-9.013 8.891l1.16-.129a10.001 10.001 0 0 0 8.819-8.698zM18.063 5.5a2.5 2.5 0 0 0-3.415-.915c-.062.035-.111.081-.168.121.005-.069.02-.136.02-.206a2.5 2.5 0 1 0-5 0c0 .07.015.137.021.206-.057-.04-.107-.086-.168-.121a2.5 2.5 0 0 0-2.5 4.33c.061.035.126.056.188.085-.062.029-.127.05-.188.085a2.5 2.5 0 0 0 2.5 4.33c.062-.035.111-.081.168-.121-.006.069-.021.136-.021.206a2.5 2.5 0 1 0 5 0c0-.07-.015-.137-.021-.206.057.04.106.086.168.121a2.5 2.5 0 0 0 2.5-4.33c-.061-.035-.126-.056-.188-.085.063-.029.127-.05.188-.085a2.5 2.5 0 0 0 .916-3.415zM12 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6z">
+                        </path>
+                    </svg>
+                    </svg>
 
                     <h3>Elegí el Ramo</h3>
                     <p>En cada entrega, podrás escoger qué ramo preferis entre varias opciones.</p>
                 </div>
                 <div class="how-it-works-item">
-                    <span class="iconify" data-icon="la:shipping-fast" style="color: white;" data-width="45"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                        style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
+                        <path
+                            d="M19.15 8a2 2 0 0 0-1.72-1H15V5a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v10a2 2 0 0 0 1 1.73 3.49 3.49 0 0 0 7 .27h3.1a3.48 3.48 0 0 0 6.9 0 2 2 0 0 0 2-2v-3a1.07 1.07 0 0 0-.14-.52zM15 9h2.43l1.8 3H15zM6.5 19A1.5 1.5 0 1 1 8 17.5 1.5 1.5 0 0 1 6.5 19zm10 0a1.5 1.5 0 1 1 1.5-1.5 1.5 1.5 0 0 1-1.5 1.5z">
+                        </path>
+                    </svg>
 
                     <h3>Envío gratis</h3>
                     <p>Podés cambiar la dirección de entrega cuando quieras sin costo adicional.</p>
                 </div>
                 <div class="how-it-works-item">
-                    <span class="iconify" data-icon="fluent:video-play-pause-24-regular" style="color: white;"
-                        data-width="45"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                        style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
+                        <path
+                            d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z">
+                        </path>
+                        <path d="M13 9h2v6h-2zM9 9h2v6H9z"></path>
+                    </svg>
 
                     <h3>Personalizá</h3>
                     <p>Podés modificar, pausar o cancelar tu suscripción cuando quieras.</p>
@@ -244,7 +270,6 @@
     <script src="scripts/products.js" type="module"></script>
     <script src="scripts/main.js" type="module"></script>
     <script src="scripts/burger.js" type="module"></script>
-    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         ( function () {

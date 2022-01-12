@@ -59,7 +59,7 @@ function showProducts(array) {
 				` <div class="products-card" data-key="${products.key}">
                 <h3 class="products-card-title" id="product-title">${products.name}</h3>
                 <h4 class="products-category">${products.category}</h4>
-                <img class="products-card-img" src="assets/ramo.png" alt="product">
+                <img class="products-card-img" src="${products.img}" alt="product">
                 <h3 class="products-card-price">$${products.price}</h3>
                 <div class="products-input-container">
                     <h3>Cantidad: </h3>
@@ -99,7 +99,7 @@ const botoneraFiltro = () => {
 			.map(
 				(cat) => `
 	<div class="filter-item">
-	<img src="/assets/menu-icon.png" alt="${cat}" class="filter-button">
+	<img src="/assets/flower-filter-ok.png" alt="${cat}" class="filter-button">
 	<p>${cat.charAt(0).toUpperCase() + cat.slice(1)}</p>
 </div>`
 			)
@@ -178,12 +178,20 @@ function cartNotificationBubble(quantity) {
 
 cartButton.addEventListener('click', () => {
 	modal.classList.remove('display-none');
-	// body.classList.add('stop-scrolling');
+	body.classList.add('stop-scrolling');
 
 	if (
-		cartList.length >= 1 ||
-		JSON.parse(localStorage.getItem('totalCart')) !== null
+		cartList.length === 0 ||
+		JSON.parse(localStorage.getItem('totalCart')) === null
 	) {
+		noProductsNotification.classList.remove('display-none');
+		totalCart.classList.add('display-none');
+		offCanvasBody.classList.add('display-none');
+		totalFinal.classList.add('display-none');
+		takeAway.classList.add('display-none');
+		shippingRate.classList.add('display-none');
+		iniciarCompra.classList.add('display-none');
+	} else {
 		feedCartModal(JSON.parse(localStorage.getItem('data')));
 		noProductsNotification.classList.add('display-none');
 		offCanvasBody.classList.remove('display-none');
@@ -204,14 +212,6 @@ cartButton.addEventListener('click', () => {
 		takeAway.classList.remove('display-none');
 		shippingRate.classList.remove('display-none');
 		iniciarCompra.classList.remove('display-none');
-	} else {
-		noProductsNotification.classList.remove('display-none');
-		totalCart.classList.add('display-none');
-		offCanvasBody.classList.add('display-none');
-		totalFinal.classList.add('display-none');
-		takeAway.classList.add('display-none');
-		shippingRate.classList.add('display-none');
-		iniciarCompra.classList.add('display-none');
 	}
 });
 
@@ -301,14 +301,11 @@ iniciarCompraBtn.addEventListener('click', (e) => {
 		  );
 });
 
-// Eliminamos artículos del carrito
-
-let deleteArray = [];
-
 // Reducimos las cantidades totales del objeto para imprimir el numero en la burbuja de notificación.
 const quantityBubble = () =>
 	cartList.reduce((acc, cur) => acc + parseInt(cur.quantity), 0);
 
+// Eliminamos productos del carrito
 function deleteProductsCart(key) {
 	cartList = cartList.filter((product) => product.key !== key);
 	feedCartModal(cartList);
@@ -331,12 +328,12 @@ function deleteProductsCart(key) {
 
 closeModal.addEventListener('click', () => {
 	modal.classList.add('display-none');
-	// body.classList.remove('stop-scrolling');
+	body.classList.remove('stop-scrolling');
 });
 
 seguirViendo.addEventListener('click', () => {
 	modal.classList.add('display-none');
-	// body.classList.remove('stop-scrolling');
+	body.classList.remove('stop-scrolling');
 });
 
 takeAwayCheckbox.addEventListener('change', (e) => {

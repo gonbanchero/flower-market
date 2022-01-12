@@ -28,6 +28,10 @@
 		width: 100%;
 	}
 
+	.checkout-form {
+		width: 100%;
+	}
+
 	.checkout-reviews {
 		width: 100%;
 		padding: 60px 0px;
@@ -90,6 +94,10 @@
 		flex-wrap: wrap;
 	}
 
+	.checkout-form {
+		width: 100%;
+	}
+
 	.checkout-form-main {
 		width: 100%;
 	}
@@ -150,6 +158,10 @@
 	.checkout {
 		width: 90%;
 		flex-wrap: wrap;
+	}
+
+	.checkout-form {
+		width: 100%;
 	}
 
 	.checkout-form-main {
