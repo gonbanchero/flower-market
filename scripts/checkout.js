@@ -165,20 +165,5 @@ finalizarCompra.addEventListener('click', (e) => {
 			}%2A%0A&app_absent=0`,
 			'_blank'
 		);
-
-		// location.href = `https://api.whatsapp.com/send/?phone=5491173660749&text=PEDIDO%3A+%2A${Math.floor(
-		// 	Math.random() * 100 + 1
-		// )}%2A%0A%0A+${JSON.parse(localStorage.getItem('data'))
-		// 	.map(
-		// 		(products) =>
-		// 			`%E2%80%94 ${products.name} > %2A${products.price}%2A%0A`
-		// 	)
-		// 	.join(' ')}%0A%2ATotal%3A+%24${JSON.parse(
-		// 	localStorage.getItem('totalCart')
-		// )}%2A%0A%0ANombre%3A+%2A${firstName.value}%2A%0ATeléfono%3A+%2A${
-		// 	phone.value
-		// }%2A%0AEmail%3A+%2A${email.value}%2A%0AInformación adicional%3A+%2A${
-		// 	additionalInfo.value
-		// }%2A%0A&app_absent=0`;
 	}
 });
