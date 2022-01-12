@@ -30,6 +30,7 @@ formSubmit.addEventListener('click', (e) => {
 					formName.value = '';
 					formEmail.value = '';
 					formConsulta.value = '';
+					formControl.className = 'contact-form';
 				},
 				(err) => {
 					alert(JSON.stringify(err));
