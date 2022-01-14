@@ -486,9 +486,6 @@
 	border-radius: 50px;
 	padding: 12px;
 	cursor: pointer;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	display: inline;
 }
 
 .filter-item p {

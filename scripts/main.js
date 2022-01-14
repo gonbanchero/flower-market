@@ -25,6 +25,7 @@ const modal = document.getElementById('offcanvas');
 const offCanvasBody = document.getElementById('offcanvas-body');
 const cartListHeaders = document.getElementById('cart-list-headers');
 const cartModalProducts = document.getElementById('cart-modal-products');
+const cartQuantity = document.querySelector('.cart-quantity');
 const noProductsNotification = document.getElementById(
 	'noproducts-notification'
 );
@@ -159,7 +160,15 @@ function addToCart(e) {
 		key: keyItem,
 	};
 
-	cartList.push(cartProduct);
+	if (cartList.some((prod) => prod.name === cartProduct.name)) {
+		let repeatedProduct = cartList.find(
+			(prod) => prod.name === cartProduct.name
+		);
+		repeatedProduct.quantity =
+			parseInt(repeatedProduct.quantity) + parseInt(cartProduct.quantity);
+	} else {
+		cartList.push(cartProduct);
+	}
 
 	cartNotificationBubble(parseInt(quantityBubble()));
 	totalCartResult();
@@ -217,19 +226,24 @@ cartButton.addEventListener('click', () => {
 
 //Agrega los productos a la ventana del carrito
 
-function feedCartModal(product) {
-	cartModalProducts.innerHTML = `${product
+// function checkDuplicated(cartArray) {
+// 	checkDuplicated(cartList);
+
+function feedCartModal(cartArray) {
+	cartModalProducts.innerHTML = cartArray
 		.map(
 			(value, index) =>
 				`<div class="product" key=${value.key}>
 				<div class="cart-title">${value.name}</div>
 				<div class="cart-quantity">${value.quantity}</div>
-				<div class="cart-price">${value.price}</div>
+				<div class="cart-price">$${parseInt(
+					value.price.slice(1, value.price.length) * value.quantity
+				)}</div>
 				<div class="cart-delete" id="delete-cart"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="18" height="18" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path class="clr-i-outline clr-i-outline-path-1" d="M27.14 34H8.86A2.93 2.93 0 0 1 6 31V11.23h2V31a.93.93 0 0 0 .86 1h18.28a.93.93 0 0 0 .86-1V11.23h2V31a2.93 2.93 0 0 1-2.86 3z" fill="#ea4334"/><path class="clr-i-outline clr-i-outline-path-2" d="M30.78 9H5a1 1 0 0 1 0-2h25.78a1 1 0 0 1 0 2z" fill="#ea4334"/><path class="clr-i-outline clr-i-outline-path-3" d="M21 13h2v15h-2z" fill="#ea4334"/><path class="clr-i-outline clr-i-outline-path-4" d="M13 13h2v15h-2z" fill="#ea4334"/><path class="clr-i-outline clr-i-outline-path-5" d="M23 5.86h-1.9V4h-6.2v1.86H13V4a2 2 0 0 1 1.9-2h6.2A2 2 0 0 1 23 4z" fill="#ea4334"/></svg> </div>
 				</div>
 				`
 		)
-		.join('')}`;
+		.join('');
 
 	noProductsNotification.classList.add('display-none');
 
