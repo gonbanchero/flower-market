@@ -100,9 +100,13 @@
         <div class="navbar-container">
             <ul class="navbar-items">
                 <li><a href="#" class="navbar-link">Home</a></li>
-                <li><a href="#products-area" class="navbar-link">Productos</a></li>
-                <li><a href="#how-it-works" class="navbar-link">Acerca De</a></li>
-                <li><a href="#footer-form" class="navbar-link">Contacto</a></li>
+                <li>
+                    <span onclick="smoothScroll(products)" class="navbar-link">Productos
+                    </span></li>
+                <li><span onclick="smoothScroll(howinfo)" class="navbar-link">Acerca De</span></li>
+                <li>
+                    <span onclick="smoothScroll(contact)" class="navbar-link">Contacto</span>
+                </li>
             </ul>
         </div>
 
@@ -159,7 +163,7 @@
 
     </section>
 
-    <section class="main-products">
+    <section class="main-products" id="products">
 
         <div class="products" id="products-area">
 
@@ -174,7 +178,7 @@
     <!-- How it Works -->
     <section class="how-it-works" id="how-it-works">
 
-        <div class="how-it-works-info">
+        <div class="how-it-works-info" id="howinfo">
             <h2>¿Cómo funciona nuestro servicio?</h2>
             <div class="how-it-works-items">
                 <div class="how-it-works-item">
@@ -229,7 +233,7 @@
     </section>
     <!-- How it Works -->
 
-    <section class="contact-section">
+    <section class="contact-section" id="contact">
 
         <h3>¿Tenés dudas? Escribinos..</h3>
 
@@ -277,6 +281,14 @@
         } )();
     </script>
     <script src="scripts/email.js"></script>
+    <script>
+        function smoothScroll( element ) {
+            element.scrollIntoView( {
+                behavior: 'smooth',
+                block: 'start'
+            } );
+        }
+    </script>
 </body>
 
 </html>

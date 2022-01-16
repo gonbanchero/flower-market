@@ -23,9 +23,7 @@ const notificationBubble = document.getElementById('bubble');
 const cartButton = document.getElementById('cart-button');
 const modal = document.getElementById('offcanvas');
 const offCanvasBody = document.getElementById('offcanvas-body');
-const cartListHeaders = document.getElementById('cart-list-headers');
 const cartModalProducts = document.getElementById('cart-modal-products');
-const cartQuantity = document.querySelector('.cart-quantity');
 const noProductsNotification = document.getElementById(
 	'noproducts-notification'
 );

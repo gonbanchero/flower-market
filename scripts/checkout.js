@@ -8,13 +8,14 @@ const mercadoPago = document.querySelector('#mercado-pago');
 const efectivo = document.querySelector('#efecivo');
 
 function feedCheckoutItems(product) {
-	console.log(product);
 	tBodyItems.innerHTML = `${product
 		.map(
 			(value, index) =>
 				`<tr class="cart-item">
                 <td class="table-70">${value.name} x ${value.quantity}</td>
-                <td class="table-30">${value.price}</td>
+                <td class="table-30">$${parseInt(
+					value.price.slice(1, value.price.length) * value.quantity
+				)}</td>
             </tr>`
 		)
 		.join('')}`;
@@ -47,8 +48,6 @@ function feedCheckoutItems(product) {
 
 feedCheckoutItems(JSON.parse(localStorage.getItem('data')));
 
-console.log(localStorage.getItem('envio'));
-
 // =======================================================
 // =======================================================
 // =======================================================
@@ -70,6 +69,7 @@ const additionalInfo = document.querySelector('#additional-info');
 const showError = (input, mensaje) => {
 	const formControl = input.parentElement;
 
+	formControl.scrollIntoView({ behavior: 'smooth', block: 'start' });
 	formControl.classList.add('error');
 
 	const small = formControl.querySelector('small');
@@ -82,6 +82,7 @@ const showSuccess = (input) => {
 };
 
 const checkRequired = (inputArr = []) => {
+	console.log(inputArr);
 	let valid = false;
 
 	if (inputArr.length === 0) {
@@ -89,12 +90,13 @@ const checkRequired = (inputArr = []) => {
 	}
 
 	inputArr.forEach((input) => {
-		if (input.value.trim() === '') {
+		if (input.value === '') {
 			showError(input, 'El campo es obligatorio');
-			return;
+			return (valid = false);
+		} else {
+			showSuccess(input);
+			valid = true;
 		}
-		showSuccess(input);
-		valid = true;
 	});
 	return valid;
 };
@@ -130,20 +132,14 @@ const checkEmail = (input) => {
 finalizarCompra.addEventListener('click', (e) => {
 	e.preventDefault();
 
-	let isRequired = checkRequired([
-			firstName,
-			lastName,
-			email,
-			adress,
-			phone,
-			city,
-		]),
+	let isRequired = checkRequired([firstName, lastName, adress, city]),
 		isNumber = checkNumber(phone),
 		isEmail = checkEmail(email);
 
 	// console.log(isRequired, isNumber, isEmail);
 
-	let isFormValid = isRequired && isNumber && isEmail;
+	let isFormValid = isNumber && isEmail && isRequired;
+	console.log(isNumber, isEmail, isRequired);
 
 	if (isFormValid) {
 		window.open(
