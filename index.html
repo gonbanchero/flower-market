@@ -101,11 +101,11 @@
             <ul class="navbar-items">
                 <li><a href="#" class="navbar-link">Home</a></li>
                 <li>
-                    <span onclick="smoothScroll(products)" class="navbar-link">Productos
+                    <span class="navbar-link" onclick="smoothScroll(products)">Productos
                     </span></li>
-                <li><span onclick="smoothScroll(howinfo)" class="navbar-link">Acerca De</span></li>
+                <li><span class="navbar-link" onclick="smoothScroll(howinfo)">Acerca De</span></li>
                 <li>
-                    <span onclick="smoothScroll(contact)" class="navbar-link">Contacto</span>
+                    <span class="navbar-link" onclick="smoothScroll(contact)">Contacto</span>
                 </li>
             </ul>
         </div>
@@ -141,7 +141,7 @@
         <div class="welcome-info">
             <h1>Suscripción de <strong>Ramos Florales</strong></h1>
             <h2>¡Recibilos en la comodidad de tu casa mensualmente!</h2>
-            <a href="#products-area">Ver Ramos</a>
+            <a onclick="smoothScroll(products)">Ver Ramos</a>
         </div>
     </section>
 
@@ -282,12 +282,12 @@
     </script>
     <script src="scripts/email.js"></script>
     <script>
-        function smoothScroll( element ) {
+        const smoothScroll = function ( element ) {
             element.scrollIntoView( {
                 behavior: 'smooth',
-                block: 'start'
+                block: 'start',
             } );
-        }
+        };
     </script>
 </body>
 
