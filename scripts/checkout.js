@@ -161,5 +161,7 @@ finalizarCompra.addEventListener('click', (e) => {
 			}%2A%0A&app_absent=0`,
 			'_blank'
 		);
+		window.localStorage.clear();
+		location.href = 'index.html';
 	}
 });
