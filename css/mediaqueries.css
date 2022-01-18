@@ -184,8 +184,12 @@
 		font-size: 0.9rem;
 	}
 
+	.contact {
+		flex-wrap: wrap;
+	}
+
 	.footer-form {
-		min-width: 50%;
+		width: 100%;
 	}
 }
 
@@ -325,5 +329,9 @@
 
 	.tarjeta-takeaway p {
 		font-size: 0.9rem;
+	}
+
+	.footer-map {
+		width: 100%;
 	}
 }
