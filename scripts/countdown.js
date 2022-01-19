@@ -31,7 +31,6 @@ setInterval(function () {
 
 var myScrollFunc = function () {
 	var y = window.scrollY;
-	console.log(y);
 	if (y >= 200) {
 		countdown.style.visibility = 'visible';
 	}
