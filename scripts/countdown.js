@@ -19,8 +19,6 @@ const renderCountDown = () => {
 	let minutes = Math.floor((gap % hour) / minute);
 	let seconds = Math.floor((gap % minute) / second);
 
-	console.log(days, hours, minutes, seconds);
-
 	timeElements[0].innerText = days;
 	timeElements[1].innerText = hours;
 	timeElements[2].innerText = minutes;
