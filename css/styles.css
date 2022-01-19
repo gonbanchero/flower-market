@@ -735,6 +735,7 @@
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
+	margin-bottom: 75px;
 }
 
 .footer-map {
@@ -786,4 +787,40 @@
 	font-size: 15px;
 	padding: 0px 20px;
 	color: var(--success-color);
+}
+
+/* COUNTDOWN */
+.countdown {
+	position: fixed;
+	bottom: 0;
+	z-index: 1999;
+	width: 100%;
+	background-color: var(--secundario);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 0px;
+	gap: 20px;
+	visibility: hidden;
+}
+
+.countdown ul {
+	display: flex;
+	list-style: none;
+	gap: 20px;
+}
+
+.countdown li {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #e0e0e0;
+	padding: 8px;
+	border-radius: 7px;
+	font-size: 14px;
+}
+
+.countdown span {
+	font-size: 20px;
 }

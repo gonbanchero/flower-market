@@ -191,6 +191,31 @@
 	.footer-form {
 		width: 100%;
 	}
+
+	.countdown {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		padding: 12px 0px;
+		gap: 10px;
+	}
+
+	.countdown ul {
+		gap: 10px;
+	}
+
+	.countdown li {
+		font-size: 12px;
+	}
+
+	.countdown span {
+		font-size: 18px;
+	}
+
+	.countdown-title {
+		font-size: 16px;
+	}
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -333,5 +358,30 @@
 
 	.footer-map {
 		width: 100%;
+	}
+
+	.countdown {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		padding: 12px 0px;
+		gap: 10px;
+	}
+
+	.countdown ul {
+		gap: 10px;
+	}
+
+	.countdown li {
+		font-size: 12px;
+	}
+
+	.countdown span {
+		font-size: 18px;
+	}
+
+	.countdown-title {
+		font-size: 16px;
 	}
 }
