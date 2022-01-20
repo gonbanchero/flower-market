@@ -246,6 +246,27 @@
 	padding-left: 20px;
 }
 
+.cart-quantity {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+}
+
+.cart-quantity .sumar {
+	color: red;
+	font-weight: 400;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.cart-quantity .restar {
+	color: red;
+	font-weight: 400;
+	font-size: 20px;
+	cursor: pointer;
+}
+
 .cart-delete {
 	padding-right: 20px;
 }

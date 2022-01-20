@@ -91,7 +91,7 @@ const categorias = () => {
 
 // Crea la botonera con el array de categorias
 
-const botoneraFiltro = () => {
+const botoneraFiltro = (e) => {
 	filterButtonContainer.insertAdjacentHTML(
 		'beforeend',
 		`${categorias()
@@ -224,16 +224,15 @@ cartButton.addEventListener('click', () => {
 
 //Agrega los productos a la ventana del carrito
 
-// function checkDuplicated(cartArray) {
-// 	checkDuplicated(cartList);
-
 function feedCartModal(cartArray) {
 	cartModalProducts.innerHTML = cartArray
 		.map(
 			(value, index) =>
 				`<div class="product" key=${value.key}>
 				<div class="cart-title">${value.name}</div>
-				<div class="cart-quantity">${value.quantity}</div>
+				<div class="cart-quantity" id="cart-quantity"><div class="restar" id="minus">-</div>${
+					value.quantity
+				}<div class="sumar" id="plus">+</div></div>
 				<div class="cart-price">$${parseInt(
 					value.price.slice(1, value.price.length) * value.quantity
 				)}</div>
@@ -254,7 +253,95 @@ function feedCartModal(cartArray) {
 			deleteProductsCart(deleteKeyProduct);
 		});
 	});
+
+	const plus = document.querySelectorAll('#plus');
+	const minus = document.querySelectorAll('#minus');
+	const cartQuantity = document.querySelector('#cart-quantity');
+	const cartPrice = document.querySelector('#cart-price');
+
+	minus.forEach((button, index) => {
+		button.addEventListener('click', (e) => {
+			const minusKeyProduct = e.path[2].attributes[1].value;
+			console.log(minusKeyProduct); // Acá averiguo el key del producto que tengo que restar
+
+			const minusProduct = cartList.filter(
+				(prod) => prod.key === minusKeyProduct
+			); // Acá lo filtro para tener seleccionado ese producto
+			console.log(minusProduct);
+
+			let quantityElement = e.path[0].nextSibling; // Encuentro el div que muestra el quantity de ese producto
+			console.log(quantityElement.textContent);
+
+			let minusResult = minusProduct[0].quantity-- - 1; // acá le resto la cantidad
+			quantityElement.textContent = minusResult; //acá lo imprimo
+
+			let printTotal = e.path[1].nextElementSibling.childNodes[0];
+			printTotal.textContent =
+				'$' +
+				cartList[index].quantity *
+					cartList[index].price.slice(
+						1,
+						cartList[index].price.length
+					);
+			console.log(printTotal);
+
+			totalCartResult(cartList);
+			cartNotificationBubble(parseInt(quantityBubble()));
+
+			saveInLocalStorage(cartList);
+
+			if (printTotal.textContent === '$0') {
+				deleteProductsCart(minusKeyProduct);
+			} else {
+				console.log('gorra');
+			}
+		});
+	});
+
+	// deleteProductsCart()
+	plus.forEach((button, index) => {
+		button.addEventListener('click', (e) => {
+			const plusKeyProduct = e.path[2].attributes[1].value;
+			console.log(plusKeyProduct); // Acá averiguo el key del producto que tengo que restar
+
+			const plusProduct = cartList.filter(
+				(prod) => prod.key === plusKeyProduct
+			); // Acá lo filtro para tener seleccionado ese producto
+			console.log(plusProduct);
+
+			let plusQuantityElement = e.path[0].previousSibling; // Encuentro el div que muestra el quantity de ese producto
+			console.log(plusQuantityElement);
+
+			let plusResult = plusProduct[0].quantity++ + 1; // acá le sumo la cantidad
+			plusQuantityElement.textContent = plusResult; //acá lo imprimo
+
+			let printTotal = e.path[1].nextElementSibling.childNodes[0];
+			printTotal.textContent =
+				'$' +
+				cartList[index].quantity *
+					cartList[index].price.slice(
+						1,
+						cartList[index].price.length
+					);
+			console.log(printTotal);
+
+			totalCartResult(cartList);
+			totalCartResult(cartList);
+			cartNotificationBubble(parseInt(quantityBubble()));
+
+			saveInLocalStorage(cartList);
+		});
+	});
 }
+
+// if (cartList.some((prod) => prod.name === cartProduct.name)) {
+// 	let repeatedProduct = cartList.find(
+// 		(prod) => prod.name === cartProduct.name
+// 	);
+// 	repeatedProduct.quantity =
+// 		parseInt(repeatedProduct.quantity) + parseInt(cartProduct.quantity);
+// } else {
+// 	cartList.push(cartProduct);
 
 // Muestra el total a pagar del carrito
 function totalCartResult() {
