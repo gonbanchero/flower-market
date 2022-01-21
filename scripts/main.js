@@ -112,7 +112,8 @@ function filterProducts(e) {
 	for (let i = 0; i < filterButton.length; i++) {
 		let clickFilterButton = filterButton[i];
 		clickFilterButton.addEventListener('click', (e) => {
-			let buttonAlt = e.path[0].alt;
+			let buttonAlt = e.target.alt;
+			console.log(e);
 
 			buttonAlt === 'todos'
 				? showProducts(productList)
@@ -248,8 +249,9 @@ function feedCartModal(cartArray) {
 
 	deleteFromCart.forEach((button, index) => {
 		button.addEventListener('click', (e) => {
-			console.log(e);
-			const deleteKeyProduct = e.path[2].attributes[1].value;
+			const deleteKeyProduct =
+				e.target.parentElement.parentElement.attributes[1].value;
+
 			deleteProductsCart(deleteKeyProduct);
 		});
 	});
@@ -261,21 +263,22 @@ function feedCartModal(cartArray) {
 
 	minus.forEach((button, index) => {
 		button.addEventListener('click', (e) => {
-			const minusKeyProduct = e.path[2].attributes[1].value;
-			console.log(minusKeyProduct); // Acá averiguo el key del producto que tengo que restar
+			const minusKeyProduct =
+				e.target.parentElement.parentElement.attributes[1].value;
+			// Acá averiguo el key del producto que tengo que restar
 
 			const minusProduct = cartList.filter(
 				(prod) => prod.key === minusKeyProduct
 			); // Acá lo filtro para tener seleccionado ese producto
-			console.log(minusProduct);
 
-			let quantityElement = e.path[0].nextSibling; // Encuentro el div que muestra el quantity de ese producto
-			console.log(quantityElement.textContent);
+			let quantityElement = e.target.nextSibling; // Encuentro el div que muestra el quantity de ese producto
 
 			let minusResult = minusProduct[0].quantity-- - 1; // acá le resto la cantidad
 			quantityElement.textContent = minusResult; //acá lo imprimo
 
-			let printTotal = e.path[1].nextElementSibling.childNodes[0];
+			let printTotal =
+				e.target.nextElementSibling.parentElement.nextElementSibling;
+
 			printTotal.textContent =
 				'$' +
 				cartList[index].quantity *
@@ -283,7 +286,6 @@ function feedCartModal(cartArray) {
 						1,
 						cartList[index].price.length
 					);
-			console.log(printTotal);
 
 			totalCartResult(cartList);
 			cartNotificationBubble(parseInt(quantityBubble()));
@@ -292,30 +294,26 @@ function feedCartModal(cartArray) {
 
 			if (printTotal.textContent === '$0') {
 				deleteProductsCart(minusKeyProduct);
-			} else {
-				console.log('gorra');
 			}
 		});
 	});
 
-	// deleteProductsCart()
 	plus.forEach((button, index) => {
 		button.addEventListener('click', (e) => {
-			const plusKeyProduct = e.path[2].attributes[1].value;
-			console.log(plusKeyProduct); // Acá averiguo el key del producto que tengo que restar
+			const plusKeyProduct =
+				e.target.parentElement.parentElement.attributes[1].value;
+			// Acá averiguo el key del producto que tengo que restar
 
 			const plusProduct = cartList.filter(
 				(prod) => prod.key === plusKeyProduct
 			); // Acá lo filtro para tener seleccionado ese producto
-			console.log(plusProduct);
 
-			let plusQuantityElement = e.path[0].previousSibling; // Encuentro el div que muestra el quantity de ese producto
-			console.log(plusQuantityElement);
+			let plusQuantityElement = e.target.previousSibling; // Encuentro el div que muestra el quantity de ese producto
 
 			let plusResult = plusProduct[0].quantity++ + 1; // acá le sumo la cantidad
 			plusQuantityElement.textContent = plusResult; //acá lo imprimo
 
-			let printTotal = e.path[1].nextElementSibling.childNodes[0];
+			let printTotal = e.target.parentElement.nextElementSibling;
 			printTotal.textContent =
 				'$' +
 				cartList[index].quantity *
@@ -323,7 +321,6 @@ function feedCartModal(cartArray) {
 						1,
 						cartList[index].price.length
 					);
-			console.log(printTotal);
 
 			totalCartResult(cartList);
 			totalCartResult(cartList);
@@ -333,15 +330,6 @@ function feedCartModal(cartArray) {
 		});
 	});
 }
-
-// if (cartList.some((prod) => prod.name === cartProduct.name)) {
-// 	let repeatedProduct = cartList.find(
-// 		(prod) => prod.name === cartProduct.name
-// 	);
-// 	repeatedProduct.quantity =
-// 		parseInt(repeatedProduct.quantity) + parseInt(cartProduct.quantity);
-// } else {
-// 	cartList.push(cartProduct);
 
 // Muestra el total a pagar del carrito
 function totalCartResult() {
